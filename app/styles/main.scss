@@ -1,0 +1,822 @@
+// bower:scss
+// endbower
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+@mixin at2x($path, $ext: "jpg", $w: auto, $h: auto) {
+	$at1x_path: "#{$path}.#{$ext}";
+	$at2x_path: "#{$path}@2x.#{$ext}";
+
+	background-image: url("#{$at1x_path}");
+
+	@media all and (-webkit-min-device-pixel-ratio : 1.5),
+	all and (-o-min-device-pixel-ratio: 3/2),
+	all and (min--moz-device-pixel-ratio: 1.5),
+	all and (min-device-pixel-ratio: 1.5) {
+		background-image: url("#{$at2x_path}");
+		background-size: $w $h;
+	}
+}
+
+@mixin transition($properties...) {
+	transition-property: $properties;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-out;
+}
+
+$colors: (
+	red             : #be1621,
+	fuchsia         : #d02247,
+	grey_light      : #adadad,
+	grey            : #595959,
+	blue_light      : #2aaade,
+	blue_medium     : #1d70b7,
+	blue_dark       : #28225c,
+	blue_turquoise  : #36a9e1,
+	turquoise       : #17a4be,
+	green_turquoise : #00a19a,
+);
+
+* {
+	box-sizing: border-box;
+}
+
+.clearfix {
+	overflow: auto;
+	zoom: 1;
+}
+
+a {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	text-decoration: none;
+	color: map-get($colors, fuchsia);
+
+	@include transition(color);
+
+	&:hover {
+		color: map-get($colors, turquoise);
+
+		@include transition(color);
+	}
+}
+
+button, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+::-ms-clear,
+::-ms-reveal {
+	width: 0;
+	height: 0;
+}
+
+*:focus {
+	outline: 0;
+}
+
+/*
+█████████████████████████████████████████████████
+█ ██████████████ ██████ █████████████████████████
+█ ██████████████ ██████ █████████████████████████
+█    ███ ███ ██     ██     ███   ███    ████    █
+█ ███ ██ ███ ███ ██████ █████ ███ ██ ███ ██ █████
+█ ███ ██ ███ ███ ██████ █████ ███ ██ ███ ███   ██
+█ ███ ██ ███ ███ ██████ █████ ███ ██ ███ ██████ █
+█    ████   █████   ████   ███   ███ ███ ██    ██
+█████████████████████████████████████████████████
+█████████████████████████████████████████████████
+█████████████████████████████████████████████████
+*/
+.btn {
+	position: relative;
+	display: block;
+
+	overflow: hidden;
+
+	margin: 0 auto;
+	padding-top: 0;
+
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+
+	box-sizing: border-box;
+	border: 0;
+	color: #fff;
+	background: map-get($colors, fuchsia);
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+
+	cursor: pointer;
+
+	@include transition(background, border, margin-top);
+
+	&:hover {
+		color: #fff;
+		background: map-get($colors, turquoise);
+
+		@include transition(background, border, margin-top);
+
+		&:before {
+			margin-top: 0;
+		}
+	}
+
+	&:before {
+		display: block;
+
+		margin-top: -40px;
+		@include transition(background, border, margin-top);
+
+		width: 140px;
+		height: 40px;
+		line-height: 40px !important;
+
+		font-size: 24px;
+	}
+
+	&.btn_sec {
+		box-sizing: border-box;
+		border: solid 1px map-get($colors, fuchsia);
+		color: map-get($colors, fuchsia);
+		background: #fff;
+
+		&:hover {
+			@include transition(background, border, margin-top);
+
+			border: solid 1px map-get($colors, turquoise);
+			color: map-get($colors, turquoise);
+			background: #fff;
+		}
+	}
+}
+
+.btn_round {
+	width: 34px;
+	height: 34px;
+
+	-moz-border-radius: 17px;
+	-webkit-border-radius: 17px;
+	border-radius: 17px;
+
+	&:before {
+		margin-top: 0;
+		@include transition(all);
+
+		width: 32px;
+		height: 32px;
+		line-height: 32px !important;
+
+		font-size: 24px;
+	}
+}
+
+.input {
+	position: relative;
+	display: inline-block;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+
+	height: 34px;
+
+	label {
+		position: absolute;
+		display: inline-block;
+
+		top: 0;
+		left: 0;
+		padding-left: 6px;
+
+		width: 100%;
+		height: 34px;
+		line-height: 34px;
+		text-align: left;
+
+		color: map-get($colors, grey_light);
+
+		&:hover {
+			cursor: text;
+		}
+
+		.asterisk {
+			color: map-get($colors, fuchsia);
+		}
+	}
+
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: inline-block;
+		float: left;
+
+		width: 100%;
+		height: 34px;
+		line-height: 34px;
+		text-align: left;
+
+		box-sizing: border-box;
+		padding: 0 5px;
+
+		border: solid 1px map-get($colors, grey);
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
+		color: map-get($colors, grey);
+	}
+}
+
+html {
+	height: 100%;
+
+	body {
+		min-width: 320px;
+		height: 100%;
+		min-height: 100%;
+
+		margin: 0;
+		padding: 0;
+
+		background: url('../images/bg.gif');
+		text-align: center;
+
+		.container {
+			max-width: 740px;
+			height: 100%;
+			min-height: 100%;
+
+			margin: 0 auto;
+			padding: 0;
+			text-align: center;
+
+			.view {
+				display: table;
+
+				width: 100%;
+				min-height: 100%;
+
+				.logo {
+					display: block;
+					margin: 0 auto;
+
+					width: 404px;
+					height: 334px;
+
+					background: url('../images/logo.gif');
+					//@include at2x('/images/logo', gif, 404px, 334px);
+					background-size: 404px 334px;
+				}
+
+				.bloc {
+					display: table-cell;
+					vertical-align: middle;
+
+					.cta,
+					.login {
+						height: 150px;
+					}
+
+					.login {
+						max-width: 530px;
+						margin: 0 auto;
+
+						.input_id,
+						.input_pwd {
+							width: 260px;
+						}
+
+						.input_id {
+							margin-right: 10px;
+						}
+
+						.backButton {
+							clear: both;
+							float: left;
+							
+							margin-top: 20px;
+						}
+
+						.pwd_forgot {
+							float: right;
+
+							margin-top: 20px;
+							margin-right: 10px;
+
+							font-size: 12px;
+							line-height: 40px;
+						}
+
+						.loginButton {
+							float: right;
+
+							margin-top: 20px;
+						}
+					}
+
+					.signin {
+						position: absolute;
+
+						top: 0;
+						left: 0;
+
+						width: 100%;
+						height: 100%;
+
+						.blocker {
+							width: 100%;
+							height: 100%;
+
+							background: rgba(0, 0, 0, 0.4);
+						}
+
+						.form {
+							position: absolute;
+							display: block;
+
+							width: 600px;
+							height: 400px;
+
+							top: 50%;
+							margin-top: -200px;
+							left: 50%;
+							margin-left: -300px;
+							
+							padding: 40px 30px;
+
+							-moz-border-radius: 5px;
+							-webkit-border-radius: 5px;
+							border-radius: 5px;
+
+							background: #fff;
+
+							.title {
+								float: left;
+								
+								margin-bottom: 30px;
+
+								font-family: 'Open Sans', sans-serif;
+								font-size: 24px;
+								font-weight: 600;
+								color: map-get($colors, fuchsia);
+
+								text-align: left;
+							}
+
+							.closeButton {
+								float: right;
+							}
+
+							.input {
+								float: left;
+								margin-bottom: 20px;
+							}
+
+							.input_id,
+							.input_nickname {
+								width: 540px;
+							}
+							
+							.input_lastname,
+							.input_firstname,
+							.input_email,
+							.input_pwd {
+								width: 265px;
+							}
+							
+							.input_lastname,
+							.input_email {
+								margin-right: 10px;
+							}
+
+							.signinButton {
+								float: right;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+███████████████████████████████████████████████████████████████████████████████
+
+███████████████████████████████████
+█ ███ ██     ██    ███     ██ ███ █
+█ ███ ████ ████ ███ ████ ████ ███ █
+█ ███ ████ ████ ███ ████ ████ ███ █
+█ ███ ████ ████ ███ ████ ████     █
+█ █ █ ████ ████ ███ ████ ████ ███ █
+█ █ █ ████ ████ ███ ████ ████ ███ █
+██ █ ███     ██    █████ ████ ███ █
+███████████████████████████████████
+███████████████████████████████████
+███████████████████████████████████
+
+███████████████████████████████████████████████████████████████████████████████
+*/
+
+/*
+████████████████████████████
+██ ██████   ████    ███   ██
+███ ████ ███ ██ ██████ ███ █
+████ ███ ███ ██ ██████ ██  █
+█████ ███    ██    ███ █ █ █
+████ ███████ ██ ███ ██  ██ █
+███ ████████ ██ ███ ██ ███ █
+██ ██████   ████   ████   ██
+████████████████████████████
+████████████████████████████
+████████████████████████████
+*/
+@media only screen and (min-width: 960px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.logo {
+							width: 394px;
+							height: 320px;
+
+							//@include at2x('/images/logo', png, 394px, 320px);
+							//background-size: 394px 320px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████
+█████ ████   ████    ███   ██
+████ ████ ███ ██ ██████ ███ █
+███ █████ ███ ██ ██████ ██  █
+██ ███████    ██    ███ █ █ █
+███ █████████ ██ ███ ██  ██ █
+████ ████████ ██ ███ ██ ███ █
+█████ ████   ████   ████   ██
+█████████████████████████████
+█████████████████████████████
+█████████████████████████████
+*/
+@media only screen and (max-width: 959px) {
+	html {
+		body {
+			.container {
+				.view {
+
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████████████████████████████████████████████████████
+██ █████     ███    ███   ███████████  ██████████████ ████   ████    ███   ██
+███ ████████ ██ ██████ ███ █████████ ██ ████████████ ████ ███ ██ ██████ ███ █
+████ ██████ ███ ██████ ███ █████████ ██ ███████████ █████ ███ ██ ██████ ██  █
+█████ █████ ███    ████   ███████████  █ █████████ ███████    ██    ███ █ █ █
+████ █████ ████ ███ ██ ███ █████████ ██ ███████████ █████████ ██ ███ ██  ██ █
+███ ██████ ████ ███ ██ ███ █████████ ██ ████████████ ████████ ██ ███ ██ ███ █
+██ ██████ ██████   ████   ███████████  █ ████████████ ████   ████   ████   ██
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	html {
+		body {
+			.container {
+				.view {
+
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████████████████████████████████████████████████████
+██ ██████    █████ ████   ███████████  ██████████████ ███     ███    ███   ██
+███ ████ ████████  ███ ███ █████████ ██ ████████████ ████████ ██ ██████ ███ █
+████ ███ ███████ █ ███ ██  █████████ ██ ███████████ ████████ ███ ██████ ███ █
+█████ ██    ███ ██ ███ █ █ ██████████  █ █████████ █████████ ███    ████   ██
+████ ███ ███ ██     ██  ██ █████████ ██ ███████████ ███████ ████ ███ ██ ███ █
+███ ████ ███ █████ ███ ███ █████████ ██ ████████████ ██████ ████ ███ ██ ███ █
+██ ██████   ██████ ████   ███████████  █ ████████████ ████ ██████   ████   ██
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+*/
+@media only screen and (min-width: 640px) and (max-width: 767px) {
+	html {
+		body {
+			.container {
+				.view {
+
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████
+█████ ████    █████ ████   ██
+████ ████ ████████  ███ ███ █
+███ █████ ███████ █ ███ ██  █
+██ ██████    ███ ██ ███ █ █ █
+███ █████ ███ ██     ██  ██ █
+████ ████ ███ █████ ███ ███ █
+█████ ████   ██████ ████   ██
+█████████████████████████████
+█████████████████████████████
+█████████████████████████████
+*/
+@media only screen and (max-width: 639px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.logo {
+							width: 197px;
+							height: 160px;
+
+							background-size: 197px 160px;
+						}
+
+						.login {
+							max-width: 260px;
+							text-align: center;
+
+							input {
+								display: inline-block;
+								float: none;
+
+								width: 260px;
+								height: 34px;
+
+								box-sizing: border-box;
+								padding: 0 5px;
+
+								border: solid 1px map-get($colors, grey);
+								-moz-border-radius: 2px;
+								-webkit-border-radius: 2px;
+								border-radius: 2px;
+
+								font-family: 'Open Sans', sans-serif;
+								font-size: 14px;
+								color: map-get($colors, grey);
+
+								&.id {
+									margin-right: 0;
+									margin-bottom: 10px;
+								}
+
+								&.pwd {
+
+								}
+							}
+
+							.pwd_forgot {
+								float: right;
+
+								width: 80px;
+
+								line-height: 20px;
+								text-align: right;
+							}
+
+							.loginButton {
+								float: right;
+
+								width: 110px;
+								margin-top: 20px;
+
+								&:before {
+									width: 110px;
+								}
+							}
+						}
+
+						.signin {
+							height: auto;
+							min-height: 100%;
+
+							.form {
+								width: 100%;
+								height: auto;
+								min-height: 100%;
+								top: 0;
+								margin-top: 0;
+								left: 0;
+								margin-left: 0;
+
+								-moz-border-radius: 0;
+								-webkit-border-radius: 0;
+								border-radius: 0;
+
+								.input {
+									width: 100%;
+									margin-bottom: 15px;
+									margin-right: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/*
+███████████████████████████████████████████████████████████████████████████████
+
+██████████████████████████████████████████
+█ ███ ██     ██     ███   ███ ███ ██     █
+█ ███ ██ ████████ ████ ███ ██ ███ ████ ███
+█ ███ ██ ████████ ████ ██████ ███ ████ ███
+█     ██   ██████ ████ █   ██     ████ ███
+█ ███ ██ ████████ ████ ███ ██ ███ ████ ███
+█ ███ ██ ████████ ████ ███ ██ ███ ████ ███
+█ ███ ██     ██     ███   ███ ███ ████ ███
+██████████████████████████████████████████
+██████████████████████████████████████████
+██████████████████████████████████████████
+
+███████████████████████████████████████████████████████████████████████████████
+*/
+
+/*
+████████████████████████████
+██ █████     ███    ███   ██
+███ ████████ ██ ██████ ███ █
+████ ██████ ███ ██████ ███ █
+█████ █████ ███    ████   ██
+████ █████ ████ ███ ██ ███ █
+███ ██████ ████ ███ ██ ███ █
+██ ██████ ██████   ████   ██
+████████████████████████████
+████████████████████████████
+████████████████████████████
+*/
+@media only screen and (min-height: 768px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.cta {
+							margin-top: 50px;
+
+							.signinButton {
+								margin-top: 20px;
+							}
+						}
+
+						.login {
+							margin-top: 50px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████████████████████████████████████████████████████
+██ ██████    █████ ████   ███████████  ██████████████ ███     ███    ███   ██
+███ ████ ████████  ███ ███ █████████ ██ ████████████ ████████ ██ ██████ ███ █
+████ ███ ███████ █ ███ ██  █████████ ██ ███████████ ████████ ███ ██████ ███ █
+█████ ██    ███ ██ ███ █ █ ██████████  █ █████████ █████████ ███    ████   ██
+████ ███ ███ ██     ██  ██ █████████ ██ ███████████ ███████ ████ ███ ██ ███ █
+███ ████ ███ █████ ███ ███ █████████ ██ ████████████ ██████ ████ ███ ██ ███ █
+██ ██████   ██████ ████   ███████████  █ ████████████ ████ ██████   ████   ██
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+*/
+@media only screen and (min-height: 640px) and (max-height: 767px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.cta {
+							margin-top: 75px;
+
+							.signinButton {
+								margin-top: 25px;
+							}
+						}
+
+						.login {
+							margin-top: 75px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+█████████████████████████████████████████████████████████████████████████████
+██ ████████ ████   ████   ███████████  ██████████████ ████    █████ ████   ██
+███ ██████  ███ ███ ██ ███ █████████ ██ ████████████ ████ ████████  ███ ███ █
+████ ████ █ ███ ███ ██ ██  █████████ ██ ███████████ █████ ███████ █ ███ ██  █
+█████ ██ ██ ████   ███ █ █ ██████████  █ █████████ ██████    ███ ██ ███ █ █ █
+████ ███     ██ ███ ██  ██ █████████ ██ ███████████ █████ ███ ██     ██  ██ █
+███ ███████ ███ ███ ██ ███ █████████ ██ ████████████ ████ ███ █████ ███ ███ █
+██ ████████ ████   ████   ███████████  █ ████████████ ████   ██████ ████   ██
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████████
+*/
+@media only screen and (min-height: 480px) and (max-height: 639px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.cta {
+							margin-top: 75px;
+
+							.signinButton {
+								margin-top: 30px;
+							}
+						}
+
+						.login {
+							margin-top: 75px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+████████████████████████████
+████ ██████ ████   ████   ██
+███ ██████  ███ ███ ██ ███ █
+██ ██████ █ ███ ███ ██ ██  █
+█ ██████ ██ ████   ███ █ █ █
+██ █████     ██ ███ ██  ██ █
+███ ███████ ███ ███ ██ ███ █
+████ ██████ ████   ████   ██
+████████████████████████████
+████████████████████████████
+████████████████████████████
+*/
+@media only screen and (max-height: 479px) {
+	html {
+		body {
+			.container {
+				.view {
+					.bloc {
+						.cta {
+							margin-top: 60px;
+
+							.signinButton {
+								margin-top: 20px;
+							}
+						}
+
+						.login {
+							margin-top: 60px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+<div class="bloc" ng-init="loggingIn=false; signingIn=true;">
+	<div class="logo"></div>
+	<div class="cta" ng-if="!loggingIn">
+		<button class="btn icon-login loginButton" ng-click="$parent.loggingIn = true">Connexion</button>
+		<button class="btn btn_sec icon-assignment signinButton" ng-click="$parent.signingIn = true">Inscription</button>
+	</div>
+	<div ng-if="loggingIn" class="login">
+		<custom-input class="input input_id" input_type="text" input_class="login_id" label_content="Mail / Numéro de badge"></custom-input><custom-input class="input input_pwd" input_type="password" input_class="login_pwd" label_content="Mot de passe"></custom-input>
+		<button class="btn btn_sec btn_round icon-arrow-back backButton" ng-click="$parent.loggingIn = false"></button>
+		<button class="btn icon-login loginButton" ng-click="submitLogin()">Connexion</button>
+		<a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
+	</div>
+	<div ng-if="signingIn" class="signin clearfix">
+		<div class="blocker" ng-click="$parent.signingIn = false"></div>
+		<div class="form clearfix">
+			<p class="title">Inscription</p>
+			<button class="btn btn_sec btn_round icon-close closeButton" ng-click="$parent.signingIn = false"></button>
+			<custom-input class="input input_id" input_type="text" input_class="signin_id" label_content="Numéro de badge"></custom-input>
+			<custom-input class="input input_lastname" input_type="text" input_class="signin_lastname" label_content="Nom"></custom-input>
+			<custom-input class="input input_firstname" input_type="text" input_class="signin_firstname" label_content="Prénom"></custom-input>
+			<custom-input class="input input_nickname" input_type="text" input_class="signin_nickname" label_content="Pseudo"></custom-input>
+			<custom-input class="input input_email" input_type="text" input_class="signin_email" label_content="E-mail"></custom-input>
+			<custom-input class="input input_pwd" input_type="text" input_class="signin_pwd" label_content="Mot de passe"></custom-input>
+			<button class="btn icon-assignment signinButton" ng-click="$parent.signingIn = true">Inscription</button>
+		</div>
+	</div>
+</div>
