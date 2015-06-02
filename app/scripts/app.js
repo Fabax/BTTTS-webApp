@@ -15,7 +15,7 @@ $(document).ready(function () {
  ███████████████████████████████████████████████████████████████████████████
  */
 window.trace = function (str) {
-	//console.log(str);
+	console.log(str);
 };
 
 /*

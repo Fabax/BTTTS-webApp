@@ -1,2 +1,2 @@
-<input type="{{inputType}}" class="{{inputClass}}" id="{{inputClass}}">
-<label for="{{inputClass}}" data-pointer-events="none">{{labelContent}}<span class="asterisk">*</span></label>
+<input type="{{inputType}}" data-parsley-type="{{parsleytype}}" class="{{inputClass}}" id="{{inputClass}}" data-parsley-minlength="{{minLenght}}" minlength="{{minLenght}}" data-parsley-required="{{required}}"  >
+<label for="{{inputClass}}" data-pointer-events="none"><span class="content">{{labelContent}}</span><span ng-if="required === 'true'" class="asterisk">*</span></label>

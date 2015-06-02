@@ -4,7 +4,10 @@ webapp.directive('customInput', function() {
 			scope: {
 				inputType: '@',
 				inputClass: '@',
-				labelContent: '@'
+				labelContent: '@',
+				parsleytype : '@',
+				required: '@',
+				minLenght : '@'
 			},
 			link: function ($scope, element, attrs) {
 				element.bind('click', function () {
@@ -24,6 +27,7 @@ webapp.directive('customInput', function() {
 			controller: function($scope) {
 				//console.log($scope.inputClass);
 				//console.log($scope.labelContent);
+				//console.log($scope.required);
 			},
 			templateUrl: '../../templates/custom_input.html'
 		};

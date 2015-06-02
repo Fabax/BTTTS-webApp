@@ -346,15 +346,15 @@ html {
 							background: rgba(0, 0, 0, 0.4);
 						}
 
-						.form {
+						form {
 							position: absolute;
 							display: block;
 
 							width: 600px;
-							height: 400px;
+							height: 450px;
 
 							top: 50%;
-							margin-top: -200px;
+							margin-top: -225px;
 							left: 50%;
 							margin-left: -300px;
 							
@@ -408,6 +408,16 @@ html {
 							.signinButton {
 								float: right;
 							}
+
+                            .signin_error{
+                              float: left;
+                              width: 70%;
+							  height:40px;
+							  font-family: 'Open Sans', sans-serif;
+							  font-size: 14px;
+                              color : map_get($colors,fuchsia);
+							  text-align : left;
+                            }
 						}
 					}
 				}
@@ -626,7 +636,7 @@ html {
 							height: auto;
 							min-height: 100%;
 
-							.form {
+							form {
 								width: 100%;
 								height: auto;
 								min-height: 100%;
