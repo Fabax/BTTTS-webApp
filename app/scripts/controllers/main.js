@@ -9,7 +9,8 @@
  * # MainCtrl
  * Controller of the btttsWebappApp
  */
-webapp.controller('MainCtrl', ['$scope', function ($scope) {
+
+webapp.controller('MainCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
 	$scope.signinFormErrors = false;
 	$scope.signinFormErrorsList = false;
@@ -23,10 +24,14 @@ webapp.controller('MainCtrl', ['$scope', function ($scope) {
 		$scope.signinForm = $('.signingInForm').parsley();
 
 		$scope.signinForm.subscribe('parsley:form:validated', function (formInstance) {
-
 			var isValid = formInstance.validationResult;
-			window.trace(isValid);
-			$scope.signinFormErrors = !isValid;
+
+			$timeout(function() {
+				$scope.$apply(function() {
+					$scope.signinFormErrors = !isValid;
+				});
+			});
+
 			$scope.signinFormErrorsList = "";
 
 			if(isValid){
@@ -49,10 +54,4 @@ webapp.controller('MainCtrl', ['$scope', function ($scope) {
 			}
 		});
 	};
-
-	$scope.submitSigningIn = function(){
-		window.trace('submitSigningIn');
-		$scope.signinForm.validate();
-	};
-
 }]);
