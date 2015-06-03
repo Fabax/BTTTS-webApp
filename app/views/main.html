@@ -18,12 +18,12 @@
 			<p class="title">Inscription</p>
 			<button class="btn btn_sec btn_round icon-close closeButton" ng-click="signingIn = false"></button>
 
-			<custom-input class="input input_id" input_type="text" parsleytype="number"  input_class="signin_id" min-lenght="1"  label_content="Numéro de badge" required="true" ></custom-input>
-			<custom-input class="input input_lastname" input_type="text" parsleytype="alphanum"  input_class="signin_lastname" min-lenght="1"  label_content="Nom" required="true" ></custom-input>
-			<custom-input class="input input_firstname" input_type="text" parsleytype="alphanum"  input_class="signin_firstname" min-lenght="1"  label_content="Prénom" required="false" ></custom-input>
-			<custom-input class="input input_nickname" input_type="text" parsleytype="alphanum"  input_class="signin_nickname" min-lenght="1"  label_content="Pseudo" required="true" ></custom-input>
-			<custom-input class="input input_email" input_type="email" parsleytype="email"  input_class="signin_email" min-lenght="1"  label_content="E-mail" required="true"  ></custom-input>
-			<custom-input class="input input_pwd" input_type="text" parsleytype="alphanum" input_class="signin_pwd" min-lenght="6"  label_content="Mot de passe" required="true" ></custom-input>
+			<custom-input class="input input_id" input_type="text" parsleytype="number"  input_class="idCard" min-lenght="1"  label_content="Numéro de badge" required="true" ></custom-input>
+			<custom-input class="input input_lastname" input_type="text" parsleytype="alphanum"  input_class="lastname" min-lenght="1"  label_content="Nom" required="true" ></custom-input>
+			<custom-input class="input input_firstname" input_type="text" parsleytype="alphanum"  input_class="firstname" min-lenght="1"  label_content="Prénom" required="false" ></custom-input>
+			<custom-input class="input input_nickname" input_type="text" parsleytype="alphanum"  input_class="nickname" min-lenght="1"  label_content="Pseudo" required="true" ></custom-input>
+			<custom-input class="input input_email" input_type="email" parsleytype="email"  input_class="email" min-lenght="1"  label_content="E-mail" required="true"  ></custom-input>
+			<custom-input class="input input_pwd" input_type="text" parsleytype="alphanum" input_class="pwd" min-lenght="6"  label_content="Mot de passe" required="true" ></custom-input>
 
 			<input type="submit" class="btn icon-assignment signinButton" value="Inscription">
             <div ng-if="signinFormErrors" class="signin_error">Les champs suivants sont erronés : <span ng-bind="signinFormErrorsList" class="errorList"></span></div>

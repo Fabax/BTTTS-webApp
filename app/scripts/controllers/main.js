@@ -10,14 +10,28 @@
  * Controller of the btttsWebappApp
  */
 
-webapp.controller('MainCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($scope, $timeout, FormsFactory) {
 
 	$scope.signinFormErrors = false;
 	$scope.signinFormErrorsList = false;
 	$scope.signinForm = null;
+	$scope.signinUser = {};
 
 	$scope.submitLogin = function () {
 		window.trace('SUBMIT LOGIN');
+	};
+
+	var addUser = function(){
+
+		var json = $scope.signinUser;
+
+		FormsFactory.addUser(json).then(function(data) {
+			if(data.Result === 'OK') {
+
+			}
+		}, function(msg) {
+			window.trace(msg);
+		});
 	};
 
 	$scope.initSigninFrom = function(){
@@ -29,13 +43,15 @@ webapp.controller('MainCtrl', ['$scope', '$timeout', function ($scope, $timeout)
 			$timeout(function() {
 				$scope.$apply(function() {
 					$scope.signinFormErrors = !isValid;
+					window.trace($scope.signinUser);
 				});
 			});
 
 			$scope.signinFormErrorsList = "";
 
 			if(isValid){
-				window.trace("good to go");
+				addUser();
+
 			}else{
 				for (var i = 0; i < $scope.signinForm.fields.length; i++) {
 
