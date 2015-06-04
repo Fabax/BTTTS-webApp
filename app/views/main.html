@@ -1,33 +1,31 @@
-<div class="bloc" ng-init="loggingIn=false; signingIn=true;">
+<div class="bloc" ng-init="loggingIn=false; signingIn=false;">
+	<!--loggingIn = {{loggingIn}}<br>signingIn = {{signingIn}}-->
 	<div class="logo"></div>
 	<div class="cta" ng-if="!loggingIn">
-		<button class="btn icon-login loginButton" ng-click="loggingIn = true">Connexion</button>
-		<button class="btn btn_sec icon-assignment signinButton" ng-click="signingIn = true">Inscription</button>
+		<button class="btn icon-login loginButton" ng-click="$parent.loggingIn = true">Connexion</button>
+		<button class="btn btn_sec icon-assignment signinButton" ng-click="$parent.signingIn = true">Inscription</button>
 	</div>
 
 	<div ng-if="loggingIn" class="login">
-		<custom-input class="input input_id" input_type="text" input_class="login_id" label_content="Mail / Numéro de badge"></custom-input><custom-input class="input input_pwd" input_type="password" input_class="login_pwd" label_content="Mot de passe"></custom-input>
-		<button class="btn btn_sec btn_round icon-arrow-back backButton" ng-click="loggingIn = false"></button>
+		<custom-input class="input input_id" input_type="text" input_class="login_id" placeholder="Mail / Numéro de badge" required="true"></custom-input><custom-input class="input input_pwd" input_type="password" input_class="login_pwd" placeholder="Mot de passe" required="true"></custom-input>
+		<button class="btn btn_sec btn_round icon-arrow-back backButton" ng-click="$parent.loggingIn = false"></button>
 		<button class="btn icon-login loginButton" ng-click="submitLogin()">Connexion</button>
 		<a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
 	</div>
 
 	<div ng-if="signingIn" class="signin clearfix">
-		<div class="blocker" ng-click="signingIn = false"></div>
-		<form ng-init="initSigninFrom()" data-parsley-validate data-parsley-ui-enabled="false"	class="clearfix signingInForm">
+		<div class="blocker" ng-click="$parent.signingIn = false"></div>
+		<form data-parsley-validate data-parsley-ui-enabled="false" class="clearfix signingInForm">
 			<p class="title">Inscription</p>
-			<button class="btn btn_sec btn_round icon-close closeButton" ng-click="signingIn = false"></button>
-
-			<custom-input class="input input_id" input_type="text" parsleytype="number"  input_class="idCard" min-lenght="1"  label_content="Numéro de badge" required="true" ></custom-input>
-			<custom-input class="input input_lastname" input_type="text" parsleytype="alphanum"  input_class="lastname" min-lenght="1"  label_content="Nom" required="true" ></custom-input>
-			<custom-input class="input input_firstname" input_type="text" parsleytype="alphanum"  input_class="firstname" min-lenght="1"  label_content="Prénom" required="false" ></custom-input>
-			<custom-input class="input input_nickname" input_type="text" parsleytype="alphanum"  input_class="nickname" min-lenght="1"  label_content="Pseudo" required="true" ></custom-input>
-			<custom-input class="input input_email" input_type="email" parsleytype="email"  input_class="email" min-lenght="1"  label_content="E-mail" required="true"  ></custom-input>
-			<custom-input class="input input_pwd" input_type="text" parsleytype="alphanum" input_class="pwd" min-lenght="6"  label_content="Mot de passe" required="true" ></custom-input>
-
-			<input type="submit" class="btn icon-assignment signinButton" value="Inscription">
-            <div ng-if="signinFormErrors" class="signin_error">Les champs suivants sont erronés : <span ng-bind="signinFormErrorsList" class="errorList"></span></div>
+			<button class="btn btn_sec btn_round icon-close closeButton" ng-click="$parent.signingIn = false"></button>
+			<div class="data">
+				<custom-input class="input input_idCard" input_type="text" parsleytype="number" input_class="idCard" min-lenght="1"  placeholder="Numéro de badge" required="true" help="true" ></custom-input>
+				<custom-input class="input input_nickname" input_type="text" parsleytype="alphanum" input_class="nickname" min-lenght="1"  placeholder="Pseudo" required="true" ></custom-input>
+				<custom-input class="input input_email" input_type="email" parsleytype="email" input_class="email" min-lenght="1"  placeholder="E-mail" required="true"  ></custom-input>
+				<custom-input class="input input_pwd" input_type="password" parsleytype="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="true" help="true" ></custom-input>
+			</div>
+			<button type="submit" class="btn icon-assignment signinButton" ng-click="initSigninFrom()">Inscription</button>
+            <div ng-if="signinFormErrors" class="signin_error">Les champs suivants sont erronés :<br><span ng-bind="signinFormErrorsList" class="errorList"></span></div>
 		</form>
-
 	</div>
 </div>

@@ -1,8 +1,14 @@
+'use strict';
+
+/*global webapp, window*/
+
 webapp.factory('FormsFactory', function($rootScope, $http, $q) {
 
     var factory = {
         addUser: function(data) {
             var deffered = $q.defer();
+
+	        data.idCard = parseInt(data.idCard);
 
             window.trace('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
             window.trace(data);

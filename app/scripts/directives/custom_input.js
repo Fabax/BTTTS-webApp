@@ -1,34 +1,41 @@
-webapp.directive('customInput', function() {
-		return {
-			restrict: 'E',
-			scope: {
-				inputType: '@',
-				inputClass: '@',
-				labelContent: '@',
-				parsleytype : '@',
-				required: '@',
-				minLenght : '@'
-			},
-			link: function ($scope, element, attrs) {
-				element.bind('click', function () {
-					$(this).find('input').focus();
-				});
+'use strict';
 
-				element.find('input').keyup(function () {
-					var len = $(this).val().length;
+/*global webapp, $*/
 
-					if(len === 0) {
-						$(this).parent().find('label').show();
-					} else {
-						$(this).parent().find('label').hide();
-					}
-				});
-			},
-			controller: function($scope) {
-				//console.log($scope.inputClass);
-				//console.log($scope.labelContent);
-				//console.log($scope.required);
-			},
-			templateUrl: '../../templates/custom_input.html'
-		};
-	});
+webapp.directive('customInput', ['$rootScope', function($rootScope) {
+	return {
+		restrict: 'E',
+		scope: {
+			inputType: '@',
+			inputClass: '@',
+			placeholder: '@',
+			parsleytype : '@',
+			required: '@',
+			asterisk: '@',
+			help: '@',
+			minLenght : '@'
+		},
+		link: function ($scope, element, attrs) {
+			//$(this).find('label').html('');
+			//
+			//element.bind('click', function () {
+			//	$(this).find('input').focus();
+			//});
+			//
+			//element.find('input').bind('keyup change blur focus', function () {
+			//	console.log('BOUM');
+			//	updateInput($(this));
+			//});
+		},
+		controller: function($scope) {
+			//console.log($scope.inputClass);
+			//console.log($scope.labelContent);
+			//console.log($scope.required);
+			//console.log($scope.parsleytype);
+			//console.log($scope.required);
+
+			$scope.asterisk = ($scope.required === 'true') ? '*' : '';
+		},
+		templateUrl: $rootScope.urlRoot + 'templates/custom_input.html'
+	};
+}]);

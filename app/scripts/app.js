@@ -1,11 +1,11 @@
 'use strict';
 
-/* global window, document */
+/* global window, document, $ */
 
 $(document).ready(function () {
-	//console.log($('label'));
-	//console.log($('label').style);
-	//console.log($('label').style.pointerEvents);
+	//window.console.log($('label'));
+	//window.console.log($('label').style);
+	//window.console.log($('label').style.pointerEvents);
 	//$('label').style.pointerEvents = 'none';
 });
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
  ███████████████████████████████████████████████████████████████████████████
  */
 window.trace = function (str) {
-	console.log(str);
+	window.console.log(str);
 };
 
 /*
@@ -35,8 +35,7 @@ var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResourc
 		if (window.location.port !== '') {
 			urlRootTemp += ':' + window.location.port;
 		}
-		urlRootTemp += '/';
-		//urlRootTemp += '/2015/XXXX_bttts/';
+		urlRootTemp += document.location.pathname;
 
 		$routeProvider.when('/', {
 				templateUrl: urlRootTemp + 'views/main.html', controller: 'MainCtrl'
@@ -58,6 +57,5 @@ webapp.run(['$route', '$rootScope', function ($route, $rootScope) {
 	if (window.location.port !== '') {
 		$rootScope.urlRoot += ':' + window.location.port;
 	}
-	$rootScope.urlRoot += '/';
-	//$rootScope.urlRoot += '/2015/XXXX_bttts/';
+	$rootScope.urlRoot += document.location.pathname;
 }]);

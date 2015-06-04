@@ -1,6 +1,6 @@
 'use strict';
 
-/*global webapp, window*/
+/*global webapp, window, $*/
 
 /**
  * @ngdoc function
@@ -15,7 +15,14 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 	$scope.signinFormErrors = false;
 	$scope.signinFormErrorsList = false;
 	$scope.signinForm = null;
-	$scope.signinUser = {};
+	$scope.signinUser = {
+		//idCard : '712',
+		//lastname : 'Phuez',
+		//firstname : 'Julien',
+		//nickname : 'FuFu',
+		//email : 'phuezj@proximity.bbdo.fr',
+		//pwd : 'glop'
+	};
 
 	$scope.submitLogin = function () {
 		window.trace('SUBMIT LOGIN');
@@ -26,8 +33,9 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 		var json = $scope.signinUser;
 
 		FormsFactory.addUser(json).then(function(data) {
-			if(data.Result === 'OK') {
-
+			console.log(data);
+			if(data.message === 'success') {
+				console.log('USER ADDED');
 			}
 		}, function(msg) {
 			window.trace(msg);
@@ -47,23 +55,32 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 				});
 			});
 
-			$scope.signinFormErrorsList = "";
+			$scope.signinFormErrorsList = '';
 
 			if(isValid){
 				addUser();
-
 			}else{
 				for (var i = 0; i < $scope.signinForm.fields.length; i++) {
 
-					var currentField  = $scope.signinForm.fields[i].validate();
+					var currentField  = $scope.signinForm.fields[i];
+					var inputContent = currentField.$element;
+					var errorlabel = currentField.$element.parent().attr('placeholder');
 
-					if(currentField === true){
-						window.trace('field : '+i+' ok');
+					if(currentField.validate() === true){
+						window.trace('field : ' + i + ' ok');
+
+						inputContent.removeClass('error');
+						//errorlabel.removeClass('error');
 					}else{
+						window.trace('field : ' + i + ' nok');
+
 						if($scope.signinFormErrorsList !== '') {
-							$scope.signinFormErrorsList += ', '
+							$scope.signinFormErrorsList += ', ';
 						}
-						$scope.signinFormErrorsList += $scope.signinForm.fields[i].$element.parent().find('label').find('.content').text();
+
+						inputContent.addClass('error');
+						//errorlabel.addClass('error');
+						$scope.signinFormErrorsList += errorlabel;
 					}
 				}
 				window.trace($scope.signinFormErrorsList);

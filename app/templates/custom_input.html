@@ -1,2 +1,3 @@
-<input type="{{inputType}}" data-parsley-type="{{parsleytype}}" class="{{inputClass}}" id="{{inputClass}}" data-parsley-minlength="{{minLenght}}" minlength="{{minLenght}}" data-parsley-required="{{required}}" ng-model="$parent.signinUser[inputClass]"  >
+<input type="{{inputType}}" placeholder="{{placeholder}}{{asterisk}}" data-parsley-type="{{parsleytype}}" class="{{inputClass}}" id="{{inputClass}}" data-parsley-minlength="{{minLenght}}" minlength="{{minLenght}}" data-parsley-required="{{required}}" ng-model="$parent.signinUser[inputClass]" ng-change="init()" >
 <label for="{{inputClass}}" data-pointer-events="none"><span class="content">{{labelContent}}</span><span ng-if="required === 'true'" class="asterisk">*</span></label>
+<button ng-if="help === 'true'" class="btn btn_round helpButton" ng-click="">?</button>
