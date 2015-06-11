@@ -109,11 +109,7 @@ button:hover {
 	box-sizing: border-box;
 	border: 0;
 	color: #fff;
-	background: map-get($colors, fuchsia);
-
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	background: url('../images/btn.png') no-repeat;
 
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
@@ -125,13 +121,17 @@ button:hover {
 	@include transition(background, border, margin-top, color);
 
 	&:hover {
-		color: #fff;
-		background: map-get($colors, turquoise);
 
 		@include transition(background, border, margin-top, color);
 
 		&:before {
 			margin-top: 0;
+		}
+
+		&.icon-login{
+			&:before{
+				margin-top: 2px;
+			}
 		}
 	}
 
@@ -149,37 +149,75 @@ button:hover {
 	}
 
 	&.btn_round {
-		width: 34px;
-		height: 34px;
+		width: 38px;
+		height: 40px;
 
-		-moz-border-radius: 17px;
-		-webkit-border-radius: 17px;
-		border-radius: 17px;
+		color: map-get($colors, fuchsia);
+		background: url('../images/btn_round.png') no-repeat;
+
+		&:hover {
+			@include transition(background, border, margin-top, color);
+
+			color: #fff;
+			background: url('../images/btn_round_hover.png') no-repeat;
+
+		}
 
 		&:before {
 			margin-top: 0;
 			@include transition(all);
 
-			width: 32px;
-			height: 32px;
-			line-height: 32px !important;
+			width: 38px;
+			height: 40px;
+			line-height: 40px !important;
 
 			font-size: 24px;
+		}
+
+		&.icon-close:before {
+		  font-size: 16px;
+		}
+	}
+
+	&.btn_round_sec {
+		width: 20px;
+		height: 20px;
+
+		color: #fff;
+		background: url('../images/btn_round_sec.png') no-repeat;
+
+		&:hover {
+			@include transition(background, border, margin-top, color);
+
+			color: map-get($colors, fuchsia);
+			background: url('../images/btn_round_sec_hover.png') no-repeat;
+
+		}
+
+		&:before {
+			margin-top: 0;
+			@include transition(all);
+
+			width: 38px;
+			height: 40px;
+			line-height: 40px !important;
+
+			font-size: 24px;
+		}
+
+		&.icon-close:before {
+		  font-size: 16px;
 		}
 	}
 
 	&.btn_sec {
 		box-sizing: border-box;
-		border: solid 1px map-get($colors, fuchsia);
 		color: map-get($colors, fuchsia);
-		background: #fff;
+		background: url('../images/btn_sec.png') no-repeat;
 
 		&:hover {
 			@include transition(background, border, margin-top, color);
 
-			border: solid 1px map-get($colors, turquoise);
-			color: map-get($colors, turquoise);
-			background: #fff;
 		}
 	}
 
@@ -376,26 +414,24 @@ html {
 						form {
 							position: absolute;
 							display: block;
+							overflow: visible;
 
 							width: 600px;
-							height: 350px;
+							height: 310px;
 
 							top: 50%;
 							margin-top: -175px;
 							left: 50%;
 							margin-left: -300px;
-							
+
 							padding: 40px 30px;
 
-							-moz-border-radius: 5px;
-							-webkit-border-radius: 5px;
-							border-radius: 5px;
 
-							background: #fff;
+							background: url('../images/popin_bg.png') no-repeat;
 
 							.title {
 								float: left;
-								
+
 								margin-bottom: 30px;
 
 								font-family: 'Open Sans', sans-serif;
@@ -431,14 +467,37 @@ html {
 								margin-left: 20px;
 							}
 
-                            .signin_error{
-                              float: left;
+              .signin_error{
+              	float: left;
 							  height:40px;
 							  font-family: 'Open Sans', sans-serif;
 							  font-size: 14px;
-                              color : map_get($colors,fuchsia);
+                color : map_get($colors,fuchsia);
 							  text-align : left;
-                            }
+              }
+              // Tooltip numéro de badge
+							.tooltip{
+								width: 261px;
+								padding: 10px 15px;
+								position: absolute;
+								bottom: 40px;
+								left: 46%;
+							}
+							.tooltip_badge{
+								background: url('../images/tooltip_badge_bg.png') no-repeat;
+								height: 161px;
+							}
+							.tooltip_mdp{
+								background: url('../images/tooltip_mdp_bg.png') no-repeat center bottom;
+								height: 65px;
+							}
+							p.error{
+								color: black;
+								font-family: 'Open Sans', sans-serif;
+								font-weight: bold;
+								text-align: left;
+								font-size: 13px;
+							}
 						}
 					}
 				}

@@ -13,7 +13,8 @@ webapp.directive('customInput', ['$rootScope', function($rootScope) {
 			required: '@',
 			asterisk: '@',
 			help: '@',
-			minLenght : '@'
+			minLenght : '@',
+			tooltipContent : '@'
 		},
 		link: function ($scope, element, attrs) {
 			//$(this).find('label').html('');

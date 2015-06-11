@@ -2,13 +2,13 @@
 	<!--loggingIn = {{loggingIn}}<br>signingIn = {{signingIn}}-->
 	<div class="logo"></div>
 	<div class="cta" ng-if="!loggingIn">
-		<button class="btn icon-login loginButton" ng-click="$parent.loggingIn = true">Connexion</button>
-		<button class="btn btn_sec icon-assignment signinButton" ng-click="$parent.signingIn = true">Inscription</button>
+		<button class="btn btn_sec icon-login loginButton" ng-click="$parent.loggingIn = true">Connexion</button>
+		<button class="btn icon-signin signinButton" ng-click="$parent.signingIn = true">Inscription</button>
 	</div>
 
 	<div ng-if="loggingIn" class="login">
 		<custom-input class="input input_id" input_type="text" input_class="login_id" placeholder="Mail / Numéro de badge" required="true"></custom-input><custom-input class="input input_pwd" input_type="password" input_class="login_pwd" placeholder="Mot de passe" required="true"></custom-input>
-		<button class="btn btn_sec btn_round icon-arrow-back backButton" ng-click="$parent.loggingIn = false"></button>
+		<button class="btn btn_round icon-fleche_gauche backButton" ng-click="$parent.loggingIn = false"></button>
 		<button class="btn icon-login loginButton" ng-click="submitLogin()">Connexion</button>
 		<a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
 	</div>
@@ -17,14 +17,14 @@
 		<div class="blocker" ng-click="$parent.signingIn = false"></div>
 		<form data-parsley-validate data-parsley-ui-enabled="false" class="clearfix signingInForm">
 			<p class="title">Inscription</p>
-			<button class="btn btn_sec btn_round icon-close closeButton" ng-click="$parent.signingIn = false"></button>
+			<button class="btn btn_round icon-close closeButton" ng-click="$parent.signingIn = false"></button>
 			<div class="data">
-				<custom-input class="input input_idCard" input_type="text" parsleytype="number" input_class="idCard" min-lenght="1"  placeholder="Numéro de badge" required="true" help="true" ></custom-input>
+				<custom-input class="input input_idCard" input_type="text" parsleytype="number" input_class="idCard" min-lenght="1"  placeholder="Numéro de badge" required="true" help="true" tooltip_content="<div class='tooltip tooltip_badge'><img src='images/badge_numero.png' alt='numéro de badge' /></div>" ></custom-input>
 				<custom-input class="input input_nickname" input_type="text" parsleytype="alphanum" input_class="nickname" min-lenght="1"  placeholder="Pseudo" required="true" ></custom-input>
 				<custom-input class="input input_email" input_type="email" parsleytype="email" input_class="email" min-lenght="1"  placeholder="E-mail" required="true"  ></custom-input>
-				<custom-input class="input input_pwd" input_type="password" parsleytype="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="true" help="true" ></custom-input>
+				<custom-input class="input input_pwd" input_type="password" parsleytype="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="true" help="true" tooltip_content="<div class='tooltip tooltip_mdp'><p class='error'>Le mot de passe doit contenir au moins 6 caractères.</p></div>" ></custom-input>
 			</div>
-			<button type="submit" class="btn icon-assignment signinButton" ng-click="initSigninFrom()">Inscription</button>
+			<button type="submit" class="btn icon-signin signinButton" ng-click="submitSigninFrom()">Inscription</button>
             <div ng-if="signinFormErrors" class="signin_error">Les champs suivants sont erronés :<br><span ng-bind="signinFormErrorsList" class="errorList"></span></div>
 		</form>
 	</div>

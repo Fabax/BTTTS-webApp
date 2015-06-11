@@ -33,16 +33,16 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 		var json = $scope.signinUser;
 
 		FormsFactory.addUser(json).then(function(data) {
-			console.log(data);
+			window.console.log(data);
 			if(data.message === 'success') {
-				console.log('USER ADDED');
+				window.console.log('USER ADDED');
 			}
 		}, function(msg) {
 			window.trace(msg);
 		});
 	};
 
-	$scope.initSigninFrom = function(){
+	$scope.submitSigninFrom = function(){
 		$scope.signinForm = $('.signingInForm').parsley();
 
 		$scope.signinForm.subscribe('parsley:form:validated', function (formInstance) {
