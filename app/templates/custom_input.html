@@ -1,5 +1,5 @@
 <input ng-init="showTooltip=false" type="{{inputType}}" placeholder="{{placeholder}}{{asterisk}}" data-parsley-type="{{parsleytype}}" class="{{inputClass}}" id="{{inputClass}}" data-parsley-minlength="{{minLenght}}" minlength="{{minLenght}}" data-parsley-required="{{required}}" ng-model="$parent.signinUser[inputClass]" ng-change="init()" >
 <label for="{{inputClass}}" data-pointer-events="none"><span class="content">{{labelContent}}</span><span ng-if="required === 'true'" class="asterisk">*</span></label>
-<button ng-if="help === 'true'" class="btn btn_round_sec helpButton" ng-mouseover="$parent.showTooltip=true" ng-mouseout="$parent.showTooltip=false" tooltip="On the Left!">?</button>
+<button ng-if="help === 'true'" class="btn round mini helpButton" ng-mouseover="$parent.showTooltip=true" ng-mouseout="$parent.showTooltip=false" tooltip="On the Left!"><span class="bg"></span><span class="icon icon-close"></span><span class="label">?</span></button>
 <div ng-if="showTooltip" ng-bind-html="tooltipContent"></div>
 

@@ -104,138 +104,253 @@ button:hover {
 
 	width: 140px;
 	height: 40px;
-	line-height: 40px;
 
+	background: none;
 	box-sizing: border-box;
 	border: 0;
-	color: #fff;
-	background: url('../images/btn.png') no-repeat;
-
-	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	text-decoration: none;
-	text-align: center;
 
 	cursor: pointer;
 
-	@include transition(background, border, margin-top, color);
+	span {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		margin: 0 auto;
+
+		color: #fff;
+
+		@include transition(background, transform, color);
+
+		&.bg {
+			height: 40px;
+			background: url('../images/btn.png') no-repeat;
+		}
+
+		&.icon {
+			transform: scale(0);
+			font-size: 22px;
+			line-height: 45px;
+		}
+
+		&.label {
+			transform: scale(1);
+
+			font-family: 'Open Sans', sans-serif;
+			font-size: 16px;
+			text-decoration: none;
+			text-align: center;
+			line-height: 40px;
+		}
+	}
 
 	&:hover {
 
-		@include transition(background, border, margin-top, color);
+		span {
+			@include transition(background, transform, color);
 
-		&:before {
-			margin-top: 0;
-		}
+			&.bg {
+				background: url('../images/btn_hover.png') no-repeat;
+			}
 
-		&.icon-login{
-			&:before{
-				margin-top: 2px;
+			&.icon {
+				transform: scale(1);
+			}
+
+			&.label {
+				transform: scale(0);
 			}
 		}
 	}
 
-	&:before {
-		display: block;
+	&.sec {
+		span {
+			color: map-get($colors, fuchsia);
 
-		margin-top: -40px;
-		@include transition(background, border, margin-top, color);
+			@include transition(background, transform, color);
 
-		width: 140px;
-		height: 40px;
-		line-height: 40px !important;
+			&.bg {
+				height: 40px;
+				background: url('../images/btn_sec.png') no-repeat;
+			}
 
-		font-size: 24px;
+			&.icon {
+				transform: scale(0);
+				font-size: 22px;
+				line-height: 45px;
+			}
+
+			&.label {
+				transform: scale(1);
+
+				font-family: 'Open Sans', sans-serif;
+				font-size: 16px;
+				text-decoration: none;
+				text-align: center;
+				line-height: 40px;
+			}
+		}
+
+		&:hover {
+
+			span {
+				color: map-get($colors, turquoise);
+
+				@include transition(background, transform, color);
+
+				&.bg {
+					background: url('../images/btn_sec_hover.png') no-repeat;
+				}
+
+				&.icon {
+					transform: scale(1);
+				}
+
+				&.label {
+					transform: scale(0);
+				}
+			}
+		}
 	}
 
-	&.btn_round {
+	&.round {
 		width: 38px;
 		height: 40px;
 
-		color: map-get($colors, fuchsia);
-		background: url('../images/btn_round.png') no-repeat;
-
-		&:hover {
-			@include transition(background, border, margin-top, color);
-
+		span {
 			color: #fff;
-			background: url('../images/btn_round_hover.png') no-repeat;
 
+			@include transition(background, transform, color);
+
+			&.bg {
+				height: 40px;
+				background: url('../images/btn_round.png') no-repeat;
+			}
+
+			&.icon {
+				font-size: 22px;
+				line-height: 45px;
+				transform: scale(1);
+			}
+
+			&.label {
+				display: none;
+			}
 		}
-
-		&:before {
-			margin-top: 0;
-			@include transition(all);
-
-			width: 38px;
-			height: 40px;
-			line-height: 40px !important;
-
-			font-size: 24px;
-		}
-
-		&.icon-close:before {
-		  font-size: 16px;
-		}
-	}
-
-	&.btn_round_sec {
-		width: 20px;
-		height: 20px;
-
-		color: #fff;
-		background: url('../images/btn_round_sec.png') no-repeat;
 
 		&:hover {
-			@include transition(background, border, margin-top, color);
 
-			color: map-get($colors, fuchsia);
-			background: url('../images/btn_round_sec_hover.png') no-repeat;
+			span {
+				@include transition(background, transform, color);
 
+				&.bg {
+					background: url('../images/btn_round_hover.png') no-repeat;
+				}
+
+				&.icon {
+					transform: scale(1);
+				}
+			}
 		}
 
-		&:before {
-			margin-top: 0;
-			@include transition(all);
+		&.sec {
+			span {
+				color: map-get($colors, fuchsia);
 
-			width: 38px;
-			height: 40px;
-			line-height: 40px !important;
+				@include transition(background, transform, color);
 
-			font-size: 24px;
+				&.bg {
+					height: 40px;
+					background: url('../images/btn_round_sec.png') no-repeat;
+				}
+			}
+
+			&:hover {
+
+				span {
+					color: map-get($colors, turquoise);
+
+					@include transition(background, transform, color);
+
+					&.bg {
+						background: url('../images/btn_round_sec_hover.png') no-repeat;
+					}
+				}
+			}
 		}
 
-		&.icon-close:before {
-		  font-size: 16px;
+		&.mini {
+			position: absolute;
+			display: inline-block;
+
+			top: 7px;
+			right: 7px;
+
+			width: 20px;
+			height: 20px;
+
+			span {
+				color: #fff;
+
+				@include transition(background, transform, color);
+
+				&.bg {
+					background: url('../images/btn_round_mini.png') no-repeat;
+				}
+
+				&.icon {
+					display: none;
+				}
+
+				&.label {
+					display: inline-block;
+					transform: scale(1);
+
+					font-family: 'Open Sans', sans-serif;
+					font-weight: bold;
+					line-height: 20px;
+					font-size: 14px;
+				}
+			}
+
+			&:hover {
+
+				span {
+					@include transition(background, transform, color);
+
+					&.bg {
+						background: url('../images/btn_round_mini_hover.png') no-repeat;
+					}
+				}
+			}
+
+			&.sec {
+				span {
+					color: map-get($colors, fuchsia);
+
+					@include transition(background, transform, color);
+
+					&.bg {
+						height: 40px;
+						background: url('../images/btn_round_mini_sec.png') no-repeat;
+					}
+				}
+
+				&:hover {
+
+					span {
+						color: map-get($colors, turquoise);
+
+						@include transition(background, transform, color);
+
+						&.bg {
+							background: url('../images/btn_round_mini_sec_hover.png') no-repeat;
+						}
+					}
+				}
+			}
 		}
-	}
-
-	&.btn_sec {
-		box-sizing: border-box;
-		color: map-get($colors, fuchsia);
-		background: url('../images/btn_sec.png') no-repeat;
-
-		&:hover {
-			@include transition(background, border, margin-top, color);
-
-		}
-	}
-
-	&.helpButton {
-		position: absolute;
-		display: inline-block;
-
-		top: 7px;
-		right: 7px;
-
-		width: 20px;
-		height: 20px;
-		line-height: 20px;
-		border-radius: 10px;
-
-		font-family: 'Open Sans', sans-serif;
-		font-weight: bold;
-		font-size: 14px;
 	}
 }
 
