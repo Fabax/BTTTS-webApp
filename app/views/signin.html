@@ -1,0 +1,25 @@
+<div class="bloc">
+	<div class="logo"></div>
+	<div class="cta" ng-if="!loggingIn">
+		<button class="btn sec loginButton" ng-click="$parent.loggingIn = true"><span class="bg"></span><span class="icon icon-login"></span><span class="label">Connexion</span></button>
+		<button class="btn signinButton" ng-click="$parent.signingIn = true"><span class="bg"></span><span class="icon icon-signin"></span><span class="label">Inscription</span></button>
+	</div>
+	<div class="blocker" ng-click="$parent.signingIn = false"></div>
+	<div ng-if="message === 'congrats'" class="popin">
+		<p class="title">Félicitations !</p>
+		<a class="btn round sec closeButton" ng-href="/"><span class="bg"></span><span class="icon icon-close"></span><span class="label">Fermer</span></a>
+		<p class="message">Afin de finaliser votre inscription, veuillez activer votre compte en cliquant sur le lien dans le mail qui vient de vous être envoyé.</p>
+	</div>
+	<div ng-if="message === 'complete'" class="popin">
+		<p class="title">Yeah !</p>
+		<a class="btn round sec closeButton" ng-href="/"><span class="bg"></span><span class="icon icon-close"></span><span class="label">Fermer</span></a>
+		<p class="message">Votre inscription est finalisée !<br>Vous pouvez désormais vous connecter.</p>
+		<a class="btn redirect" ng-href="/home/login"><span class="bg"></span><span class="icon icon-login"></span><span class="label">Connexion</span></a>
+	</div>
+	<div ng-if="message === 'already'" class="popin">
+		<p class="title">Gné !</p>
+		<a class="btn round sec closeButton" ng-href="/"><span class="bg"></span><span class="icon icon-close"></span><span class="label">Fermer</span></a>
+		<p class="message">Vous êtes déjà inscrit ! Essayez de vous connecter ;)</p>
+		<a class="btn redirect" ng-href="/home/login"><span class="bg"></span><span class="icon icon-login"></span><span class="label">Connexion</span></a>
+	</div>
+</div>

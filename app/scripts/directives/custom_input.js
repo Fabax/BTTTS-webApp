@@ -9,7 +9,7 @@ webapp.directive('customInput', ['$rootScope', function($rootScope) {
 			inputType: '@',
 			inputClass: '@',
 			placeholder: '@',
-			parsleytype : '@',
+			parsleyType : '@',
 			required: '@',
 			asterisk: '@',
 			help: '@',

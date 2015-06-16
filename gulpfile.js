@@ -1,11 +1,13 @@
-/*global -$ */
 'use strict';
-// generated on 2015-05-05 using generator-gulp-webapp 0.3.0
+
+/*global -$ */
+
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var plumber = require('gulp-plumber');
+var modRewrite  = require('connect-modrewrite');
 
 gulp.task('styles', function () {
 	return gulp.src('app/styles/**/*.{scss,sass}')
@@ -75,9 +77,18 @@ gulp.task('extras', function () {
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], function () {
-	browserSync({
-		notify: false, port: 9000, server: {
-			baseDir: ['.tmp', 'app'], routes: {
+	browserSync.init(null, {
+		notify: true,
+		port: 9000,
+		server: {
+			baseDir: ['.tmp', 'app'],
+			middleware: [
+				modRewrite([
+					'!\\.\\w+$ /index.html [L]'
+				])
+			],
+			//index: "index.html",
+			routes: {
 				'/bower_components': 'bower_components'
 			}
 		}

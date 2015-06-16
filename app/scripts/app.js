@@ -35,13 +35,31 @@ var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResourc
 		if (window.location.port !== '') {
 			urlRootTemp += ':' + window.location.port;
 		}
-		urlRootTemp += document.location.pathname;
+		//urlRootTemp += document.location.pathname;
+		urlRootTemp += '/';
 
-		$routeProvider.when('/', {
-				templateUrl: urlRootTemp + 'views/main.html', controller: 'MainCtrl'
-			}).when('/about', {
-				templateUrl: urlRootTemp + 'views/about.html', controller: 'AboutCtrl'
-			}).otherwise({
+		$routeProvider
+			.when('/', {
+				templateUrl: urlRootTemp + 'views/main.html',
+				controller: 'MainCtrl'
+			})
+			.when('/home', {
+				templateUrl: urlRootTemp + 'views/main.html',
+				controller: 'MainCtrl'
+			})
+			.when('/home/:action', {
+				templateUrl: urlRootTemp + 'views/main.html',
+				controller: 'MainCtrl'
+			})
+			.when('/signin', {
+				templateUrl: urlRootTemp + 'views/signin.html',
+				controller: 'SigninCtrl'
+			})
+			.when('/signin/:message', {
+				templateUrl: urlRootTemp + 'views/signin.html',
+				controller: 'SigninCtrl'
+			})
+			.otherwise({
 				redirectTo: '/'
 			});
 	}]);
@@ -57,5 +75,6 @@ webapp.run(['$route', '$rootScope', function ($route, $rootScope) {
 	if (window.location.port !== '') {
 		$rootScope.urlRoot += ':' + window.location.port;
 	}
-	$rootScope.urlRoot += document.location.pathname;
+	//$rootScope.urlRoot += document.location.pathname;
+	$rootScope.urlRoot += '/';
 }]);

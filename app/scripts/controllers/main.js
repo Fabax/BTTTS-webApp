@@ -4,24 +4,37 @@
 
 /**
  * @ngdoc function
- * @name btttsWebappApp.controller:MainCtrl
+ * @name btttsWebapp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the btttsWebappApp
+ * Controller of the btttsWebapp
  */
 
-webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($scope, $timeout, FormsFactory) {
+webapp.controller('MainCtrl', ['$routeParams', '$scope', '$timeout','FormsFactory', function ($routeParams, $scope, $timeout, FormsFactory) {
+	$scope.loggingIn = false;
+	$scope.signingIn = false;
+
+	if($routeParams.action !== undefined) {
+		switch ($routeParams.action) {
+			case 'login' :
+				$scope.loggingIn = true;
+				break;
+			case 'signin' :
+				$scope.signingIn = true;
+				break;
+			default:
+				break;
+		}
+	}
 
 	$scope.signinFormErrors = false;
 	$scope.signinFormErrorsList = false;
 	$scope.signinForm = null;
 	$scope.signinUser = {
-		//idCard : '712',
-		//lastname : 'Phuez',
-		//firstname : 'Julien',
-		//nickname : 'FuFu',
-		//email : 'phuezj@proximity.bbdo.fr',
-		//pwd : 'glop'
+		idCard : '712',
+		nickname : 'FuFu',
+		email : 'phuezj@proximity.bbdo.fr',
+		pwd : 'glop'
 	};
 
 	$scope.submitLogin = function () {
@@ -36,6 +49,7 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 			window.console.log(data);
 			if(data.message === 'success') {
 				window.console.log('USER ADDED');
+				$location.path('/signin/congrats');
 			}
 		}, function(msg) {
 			window.trace(msg);
@@ -43,6 +57,8 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 	};
 
 	$scope.submitSigninFrom = function(){
+		window.trace('submitSigninFrom');
+
 		$scope.signinForm = $('.signingInForm').parsley();
 
 		$scope.signinForm.subscribe('parsley:form:validated', function (formInstance) {
@@ -59,7 +75,7 @@ webapp.controller('MainCtrl', ['$scope', '$timeout','FormsFactory', function ($s
 
 			if(isValid){
 				addUser();
-			}else{
+			} else {
 				for (var i = 0; i < $scope.signinForm.fields.length; i++) {
 
 					var currentField  = $scope.signinForm.fields[i];

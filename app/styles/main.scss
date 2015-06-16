@@ -1,6 +1,5 @@
 // bower:scss
 // endbower
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 @mixin at2x($path, $ext: "jpg", $w: auto, $h: auto) {
@@ -9,7 +8,7 @@
 
 	background-image: url("#{$at1x_path}");
 
-	@media all and (-webkit-min-device-pixel-ratio : 1.5),
+	@media all and (-webkit-min-device-pixel-ratio: 1.5),
 	all and (-o-min-device-pixel-ratio: 3/2),
 	all and (min--moz-device-pixel-ratio: 1.5),
 	all and (min-device-pixel-ratio: 1.5) {
@@ -25,15 +24,15 @@
 }
 
 $colors: (
-	red             : #be1621,
-	fuchsia         : #d02247,
-	grey_light      : #adadad,
-	grey            : #595959,
-	blue_light      : #2aaade,
-	blue_medium     : #1d70b7,
-	blue_dark       : #28225c,
-	blue_turquoise  : #36a9e1,
-	turquoise       : #17a4be,
+	red : #be1621,
+	fuchsia : #d02247,
+	grey_light : #adadad,
+	grey : #595959,
+	blue_light : #2aaade,
+	blue_medium : #1d70b7,
+	blue_dark : #28225c,
+	blue_turquoise : #36a9e1,
+	turquoise : #17a4be,
 	green_turquoise : #00a19a,
 );
 
@@ -415,7 +414,45 @@ custom-input {
 		display: none;
 	}
 
+	// Tooltip numéro de badge
+	.tooltip {
+		width: 261px;
+		padding: 10px 15px;
+		position: absolute;
+		bottom: 40px;
+		left: 46%;
 
+		&.tooltip_bottom {
+			bottom: auto;
+			top: 40px;
+
+			&.tooltip_badge {
+				background: url('../images/tooltip_badge_bottom_bg.png') no-repeat;
+				height: 161px;
+			}
+		}
+	}
+
+	.tooltip_badge {
+		background: url('../images/tooltip_badge_bg.png') no-repeat;
+		height: 161px;
+	}
+
+	.tooltip_mdp {
+		background: url('../images/tooltip_mdp_bg.png') no-repeat center bottom;
+		height: 65px;
+	}
+}
+
+.blocker {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, 0.4);
 }
 
 html {
@@ -519,13 +556,6 @@ html {
 						width: 100%;
 						height: 100%;
 
-						.blocker {
-							width: 100%;
-							height: 100%;
-
-							background: rgba(0, 0, 0, 0.4);
-						}
-
 						form {
 							position: absolute;
 							display: block;
@@ -540,7 +570,6 @@ html {
 							margin-left: -300px;
 
 							padding: 40px 30px;
-
 
 							background: url('../images/popin_bg.png') no-repeat;
 
@@ -582,37 +611,87 @@ html {
 								margin-left: 20px;
 							}
 
-              .signin_error{
-              	float: left;
-							  height:40px;
-							  font-family: 'Open Sans', sans-serif;
-							  font-size: 14px;
-                color : map_get($colors,fuchsia);
-							  text-align : left;
-              }
-              // Tooltip numéro de badge
-							.tooltip{
-								width: 261px;
-								padding: 10px 15px;
-								position: absolute;
-								bottom: 40px;
-								left: 46%;
+							.signin_error {
+								float: left;
+								height: 40px;
+								font-family: 'Open Sans', sans-serif;
+								font-size: 14px;
+								color: map_get($colors, fuchsia);
+								text-align: left;
 							}
-							.tooltip_badge{
-								background: url('../images/tooltip_badge_bg.png') no-repeat;
-								height: 161px;
-							}
-							.tooltip_mdp{
-								background: url('../images/tooltip_mdp_bg.png') no-repeat center bottom;
-								height: 65px;
-							}
-							p.error{
+
+							p.error {
 								color: black;
 								font-family: 'Open Sans', sans-serif;
 								font-weight: bold;
 								text-align: left;
 								font-size: 13px;
 							}
+
+							.message {
+								display: block;
+								clear: both;
+
+								margin-bottom: 30px;
+
+								font-family: 'Open Sans', sans-serif;
+								text-align: left;
+								font-size: 14px;
+							}
+						}
+					}
+
+					.popin {
+						position: absolute;
+						display: block;
+						overflow: visible;
+
+						width: 600px;
+						height: 310px;
+
+						top: 50%;
+						margin-top: -175px;
+						left: 50%;
+						margin-left: -300px;
+
+						padding: 40px 30px;
+
+						background: url('../images/popin_bg.png') no-repeat;
+
+						.title {
+							float: left;
+
+							margin-bottom: 30px;
+
+							font-family: 'Open Sans', sans-serif;
+							font-size: 24px;
+							font-weight: 600;
+							color: map-get($colors, fuchsia);
+
+							text-align: left;
+						}
+
+						.closeButton {
+							float: right;
+						}
+
+						.message {
+							display: block;
+							clear: both;
+
+							margin-bottom: 30px;
+
+							font-family: 'Open Sans', sans-serif;
+							text-align: left;
+							font-size: 14px;
+						}
+
+						.redirect {
+							position: absolute;
+							display: block;
+							bottom: 50px;
+							left: 50%;
+							margin-left: -70px;
 						}
 					}
 				}
@@ -856,8 +935,6 @@ html {
 		}
 	}
 }
-
-
 
 /*
 ███████████████████████████████████████████████████████████████████████████████
