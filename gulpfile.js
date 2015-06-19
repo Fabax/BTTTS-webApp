@@ -21,7 +21,10 @@ gulp.task('styles', function () {
 		.pipe($.postcss([require('autoprefixer-core')({browsers: ['last 1 version']})]))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
-		.pipe(reload({stream: true}));
+		.pipe(reload({
+			stream: true,
+			once: true
+		}));
 });
 
 gulp.task('copy', function() {
@@ -79,6 +82,7 @@ gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 gulp.task('serve', ['styles', 'fonts'], function () {
 	browserSync.init(null, {
 		notify: true,
+		injectChanges: true,
 		port: 9000,
 		server: {
 			baseDir: ['.tmp', 'app'],

@@ -18,12 +18,12 @@
 		<div class="blocker" ng-click="$parent.signingIn = false"></div>
 		<form ng-if="!$parent.signedIn" data-parsley-validate data-parsley-ui-enabled="false" class="clearfix signingInForm">
 			<p class="title">Inscription</p>
-			<button class="btn round sec closeButton" ng-click="$parent.signingIn = false"><span class="bg"></span><span class="icon icon-close"></span><span class="label">Fermer</span></button>
+			<button class="btn round sec closeButton" ng-click="$parent.$parent.signingIn = false"><span class="bg"></span><span class="icon icon-close"></span><span class="label">Fermer</span></button>
 			<div class="data">
 				<custom-input class="input input_idCard" input_type="text" parsley_type="number" input_class="idCard" min-lenght="1"  placeholder="Numéro de badge" required="true" help="true" tooltip_content="<div class='tooltip tooltip_badge'><img src='images/badge_numero.png' alt='numéro de badge' /></div>"></custom-input>
 				<custom-input class="input input_nickname" input_type="text" parsley_type="alphanum" input_class="nickname" min-lenght="1"  placeholder="Pseudo" required="true"></custom-input>
 				<custom-input class="input input_email" input_type="email" parsley_type="email" input_class="email" min-lenght="1"  placeholder="E-mail" required="true"></custom-input>
-				<custom-input class="input input_pwd" input_type="password" parsley_type="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="true" help="true" tooltip_content="<div class='tooltip tooltip_mdp'><p class='error'>Le mot de passe doit contenir au moins 6 caractères.</p></div>"></custom-input>
+				<custom-input class="input input_pwd" input_type="password" parsley_type="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="true" help="true" tooltip_content="<div class='tooltip tooltip_mdp'>Le mot de passe doit contenir au moins 6 caractères.</div>"></custom-input>
 			</div>
 			<button ng-click="submitSigninFrom()" type="submit" class="btn signinButton"><span class="bg"></span><span class="icon icon-signin"></span><span class="label">Inscription</span></button>
             <div ng-if="signinFormErrors" class="signin_error">Les champs suivants sont erronés :<br><span ng-bind="signinFormErrorsList" class="errorList"></span></div>

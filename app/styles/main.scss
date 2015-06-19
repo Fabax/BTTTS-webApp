@@ -1,6 +1,9 @@
 // bower:scss
 // endbower
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Handlee);
+@import url(http://fonts.googleapis.com/css?family=Patrick+Hand);
+@import url(http://fonts.googleapis.com/css?family=Kalam:400,700,300);
 
 @mixin at2x($path, $ext: "jpg", $w: auto, $h: auto) {
 	$at1x_path: "#{$path}.#{$ext}";
@@ -46,8 +49,7 @@ $colors: (
 }
 
 a {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
+	font-family: 'Handlee', cursive;
 	text-decoration: none;
 	color: map-get($colors, fuchsia);
 
@@ -130,17 +132,18 @@ button:hover {
 		&.icon {
 			transform: scale(0);
 			font-size: 22px;
-			line-height: 45px;
+			line-height: 44px;
 		}
 
 		&.label {
 			transform: scale(1);
 
-			font-family: 'Open Sans', sans-serif;
+			font-family: 'Handlee', cursive;
 			font-size: 16px;
+			font-weight: bold;
 			text-decoration: none;
 			text-align: center;
-			line-height: 40px;
+			line-height: 44px;
 		}
 	}
 
@@ -170,24 +173,7 @@ button:hover {
 			@include transition(background, transform, color);
 
 			&.bg {
-				height: 40px;
 				background: url('../images/btn_sec.png') no-repeat;
-			}
-
-			&.icon {
-				transform: scale(0);
-				font-size: 22px;
-				line-height: 45px;
-			}
-
-			&.label {
-				transform: scale(1);
-
-				font-family: 'Open Sans', sans-serif;
-				font-size: 16px;
-				text-decoration: none;
-				text-align: center;
-				line-height: 40px;
 			}
 		}
 
@@ -200,14 +186,6 @@ button:hover {
 
 				&.bg {
 					background: url('../images/btn_sec_hover.png') no-repeat;
-				}
-
-				&.icon {
-					transform: scale(1);
-				}
-
-				&.label {
-					transform: scale(0);
 				}
 			}
 		}
@@ -229,7 +207,7 @@ button:hover {
 
 			&.icon {
 				font-size: 22px;
-				line-height: 45px;
+				line-height: 46px;
 				transform: scale(1);
 			}
 
@@ -257,10 +235,9 @@ button:hover {
 			span {
 				color: map-get($colors, fuchsia);
 
-				@include transition(background, transform, color);
+				//@include transition(background, transform, color);
 
 				&.bg {
-					height: 40px;
 					background: url('../images/btn_round_sec.png') no-repeat;
 				}
 			}
@@ -270,7 +247,7 @@ button:hover {
 				span {
 					color: map-get($colors, turquoise);
 
-					@include transition(background, transform, color);
+					//@include transition(background, transform, color);
 
 					&.bg {
 						background: url('../images/btn_round_sec_hover.png') no-repeat;
@@ -306,9 +283,9 @@ button:hover {
 					display: inline-block;
 					transform: scale(1);
 
-					font-family: 'Open Sans', sans-serif;
+					font-family: 'Handlee', cursive;
 					font-weight: bold;
-					line-height: 20px;
+					line-height: 24px;
 					font-size: 14px;
 				}
 			}
@@ -368,7 +345,7 @@ button:hover {
 */
 custom-input {
 	position: relative;
-	color: #f00;
+	color: #000;
 
 	&[help = true] {
 		input {
@@ -416,11 +393,18 @@ custom-input {
 
 	// Tooltip numéro de badge
 	.tooltip {
-		width: 261px;
-		padding: 10px 15px;
 		position: absolute;
+
 		bottom: 40px;
 		left: 46%;
+
+		width: 261px;
+		padding: 10px 15px;
+
+		font-family: 'Handlee', cursive;
+		font-weight: bold;
+		text-align: left;
+		font-size: 14px;
 
 		&.tooltip_bottom {
 			bottom: auto;
@@ -538,8 +522,9 @@ html {
 
 							margin-right: 10px;
 
-							font-size: 12px;
-							line-height: 40px;
+							font-size: 14px;
+							font-weight: bold;
+							line-height: 44px;
 						}
 
 						.loginButton {
@@ -578,7 +563,7 @@ html {
 
 								margin-bottom: 30px;
 
-								font-family: 'Open Sans', sans-serif;
+								font-family: 'Handlee', cursive;
 								font-size: 24px;
 								font-weight: 600;
 								color: map-get($colors, fuchsia);
@@ -614,18 +599,11 @@ html {
 							.signin_error {
 								float: left;
 								height: 40px;
-								font-family: 'Open Sans', sans-serif;
+								font-family: 'Handlee', cursive;
 								font-size: 14px;
+								font-weight: bold;
 								color: map_get($colors, fuchsia);
 								text-align: left;
-							}
-
-							p.error {
-								color: black;
-								font-family: 'Open Sans', sans-serif;
-								font-weight: bold;
-								text-align: left;
-								font-size: 13px;
 							}
 
 							.message {
@@ -634,7 +612,7 @@ html {
 
 								margin-bottom: 30px;
 
-								font-family: 'Open Sans', sans-serif;
+								font-family: 'Handlee', cursive;
 								text-align: left;
 								font-size: 14px;
 							}
@@ -663,7 +641,7 @@ html {
 
 							margin-bottom: 30px;
 
-							font-family: 'Open Sans', sans-serif;
+							font-family: 'Handlee', cursive;
 							font-size: 24px;
 							font-weight: 600;
 							color: map-get($colors, fuchsia);
@@ -681,17 +659,17 @@ html {
 
 							margin-bottom: 30px;
 
-							font-family: 'Open Sans', sans-serif;
+							font-family: 'Handlee', cursive;
 							text-align: left;
-							font-size: 14px;
+							font-size: 16px;
 						}
 
 						.redirect {
 							position: absolute;
 							display: block;
-							bottom: 50px;
-							left: 50%;
-							margin-left: -70px;
+
+							bottom: 40px;
+							right: 30px;
 						}
 					}
 				}
@@ -795,141 +773,6 @@ html {
 			.container {
 				.view {
 
-				}
-			}
-		}
-	}
-}
-
-/*
-█████████████████████████████████████████████████████████████████████████████
-██ ██████    █████ ████   ███████████  ██████████████ ███     ███    ███   ██
-███ ████ ████████  ███ ███ █████████ ██ ████████████ ████████ ██ ██████ ███ █
-████ ███ ███████ █ ███ ██  █████████ ██ ███████████ ████████ ███ ██████ ███ █
-█████ ██    ███ ██ ███ █ █ ██████████  █ █████████ █████████ ███    ████   ██
-████ ███ ███ ██     ██  ██ █████████ ██ ███████████ ███████ ████ ███ ██ ███ █
-███ ████ ███ █████ ███ ███ █████████ ██ ████████████ ██████ ████ ███ ██ ███ █
-██ ██████   ██████ ████   ███████████  █ ████████████ ████ ██████   ████   ██
-█████████████████████████████████████████████████████████████████████████████
-█████████████████████████████████████████████████████████████████████████████
-█████████████████████████████████████████████████████████████████████████████
-*/
-@media only screen and (min-width: 640px) and (max-width: 767px) {
-	html {
-		body {
-			.container {
-				.view {
-
-				}
-			}
-		}
-	}
-}
-
-/*
-█████████████████████████████
-█████ ████    █████ ████   ██
-████ ████ ████████  ███ ███ █
-███ █████ ███████ █ ███ ██  █
-██ ██████    ███ ██ ███ █ █ █
-███ █████ ███ ██     ██  ██ █
-████ ████ ███ █████ ███ ███ █
-█████ ████   ██████ ████   ██
-█████████████████████████████
-█████████████████████████████
-█████████████████████████████
-*/
-@media only screen and (max-width: 639px) {
-	html {
-		body {
-			.container {
-				.view {
-					.bloc {
-						.logo {
-							width: 197px;
-							height: 160px;
-
-							background-size: 197px 160px;
-						}
-
-						.login {
-							max-width: 260px;
-							text-align: center;
-
-							input {
-								display: inline-block;
-								float: none;
-
-								width: 260px;
-								height: 34px;
-
-								box-sizing: border-box;
-								padding: 0 5px;
-
-								border: solid 1px map-get($colors, grey);
-								-moz-border-radius: 2px;
-								-webkit-border-radius: 2px;
-								border-radius: 2px;
-
-								font-family: 'Open Sans', sans-serif;
-								font-size: 14px;
-								color: map-get($colors, grey);
-
-								&.id {
-									margin-right: 0;
-									margin-bottom: 10px;
-								}
-
-								&.pwd {
-
-								}
-							}
-
-							.pwd_forgot {
-								float: right;
-
-								width: 80px;
-
-								line-height: 20px;
-								text-align: right;
-							}
-
-							.loginButton {
-								float: right;
-
-								width: 110px;
-
-								&:before {
-									width: 110px;
-								}
-							}
-						}
-
-						.signin {
-							height: auto;
-							min-height: 100%;
-
-							form {
-								width: 100%;
-								height: auto;
-								min-height: 100%;
-								top: 0;
-								margin-top: 0;
-								left: 0;
-								margin-left: 0;
-
-								-moz-border-radius: 0;
-								-webkit-border-radius: 0;
-								border-radius: 0;
-
-								.data {
-									width: 100%;
-									margin-bottom: 15px;
-									margin-right: 0;
-								}
-							}
-						}
-					}
 				}
 			}
 		}
