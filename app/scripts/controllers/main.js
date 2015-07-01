@@ -31,10 +31,10 @@ webapp.controller('MainCtrl', ['$routeParams', '$scope', '$timeout','FormsFactor
 	$scope.signinFormErrorsList = false;
 	$scope.signinForm = null;
 	$scope.signinUser = {
-		idCard : '712',
-		nickname : 'FuFu',
-		email : 'phuezj@proximity.bbdo.fr',
-		pwd : 'glop'
+		//idCard : '712',
+		//nickname : 'FuFu',
+		//email : 'phuezj@proximity.bbdo.fr',
+		//pwd : 'glop'
 	};
 
 	$scope.submitLogin = function () {

@@ -59,6 +59,14 @@ var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResourc
 				templateUrl: urlRootTemp + 'views/signin.html',
 				controller: 'SigninCtrl'
 			})
+			.when('/home', {
+				templateUrl: urlRootTemp + 'views/home.html',
+				controller: 'HomeCtrl'
+			})
+			.when('/home/:section', {
+				templateUrl: urlRootTemp + 'views/home.html',
+				controller: 'HomeCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

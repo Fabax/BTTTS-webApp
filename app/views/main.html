@@ -8,7 +8,7 @@
 	<div ng-if="loggingIn" class="login">
 		<form>
 			<custom-input class="input input_id" input_type="text" input_class="login_id" placeholder="Mail / Numéro de badge" required="true" help="true" tooltip_content="<div class='tooltip tooltip_bottom tooltip_badge'><img src='images/badge_numero.png' alt='numéro de badge' /></div>"></custom-input><custom-input class="input input_pwd" input_type="password" input_class="login_pwd" placeholder="Mot de passe" required="true"></custom-input>
-			<button class="btn round sec backButton" ng-click="$parent.loggingIn = false"><span class="bg"></span><span class="icon icon-fleche_gauche"></span><span class="label">Retour</span></button>
+			<button class="btn round sec backButton" ng-click="$parent.loggingIn = false"><span class="bg"></span><span class="icon icon-arrow-back"></span><span class="label">Retour</span></button>
 			<button class="btn icon-login loginButton" ng-click="submitLogin()"><span class="bg"></span><span class="icon icon-login"></span><span class="label">Connexion</span></button>
 			<a href="#" class="pwd_forgot">Mot de passe oublié ?</a>
 		</form>
