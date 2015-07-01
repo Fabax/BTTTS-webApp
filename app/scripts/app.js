@@ -43,11 +43,11 @@ var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResourc
 				templateUrl: urlRootTemp + 'views/main.html',
 				controller: 'MainCtrl'
 			})
-			.when('/home', {
+			.when('/main', {
 				templateUrl: urlRootTemp + 'views/main.html',
 				controller: 'MainCtrl'
 			})
-			.when('/home/:action', {
+			.when('/main/:action', {
 				templateUrl: urlRootTemp + 'views/main.html',
 				controller: 'MainCtrl'
 			})
