@@ -134,5 +134,4 @@ webapp.controller('HomeCtrl', ['$scope', function ($scope) {
 		window.addEventListener('DOMMouseScroll', wheel, false);
 	}
 	window.onmousewheel = document.onmousewheel = wheel;
-
 }]);

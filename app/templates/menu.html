@@ -1,8 +1,42 @@
-<a class="btn round sec closeButton" ng-href="#"><span class="bg"></span><span class="icon icon-menu"></span><span class="label">Fermer</span></a>
+<a class="btn round closeButton" ng-href="#">
+  <span class="bg"></span>
+  <span class="icon icon-menu"></span>
+  <span class="label">Fermer</span>
+</a>
 <ul>
-	<li><button class="btn menu item_profile"><span class="bg"></span><span class="icon"></span><span class="label">Profil</span></button></li>
-	<li><button class="btn menu item_achievement"><span class="bg"></span><span class="icon"></span><span class="label">Défis</span></button></li>
-	<li><button class="btn menu item_ranking"><span class="bg"></span><span class="icon"></span><span class="label">Classement</span></button></li>
-	<li><button class="btn menu item_statitics"><span class="bg"></span><span class="icon"></span><span class="label">Stats BBDO</span></button></li>
-	<li><button class="btn menu item_logout"><span class="bg"></span><span class="icon"></span><span class="label">Déconnexion</span></button></li>
+	<li>
+    <button class="btn menu item_profile" ng-click="$parent.profilPopin = true; $parent.profilDetails = true">
+      <span class="bg"></span>
+      <span class="icon"></span>
+      <span class="label">Profil</span>
+    </button>
+  </li>
+	<li>
+    <button class="btn menu item_achievement" ng-click="$parent.defisPopin = true">
+      <span class="bg"></span>
+      <span class="icon"></span>
+      <span class="label">Défis</span>
+    </button>
+  </li>
+	<li>
+    <button class="btn menu item_ranking" ng-click="$parent.classementPopin = true">
+      <span class="bg"></span>
+      <span class="icon"></span>
+      <span class="label">Classement</span>
+    </button>
+  </li>
+	<li>
+    <button class="btn menu item_statitics" ng-click="$parent.statsPopin = true">
+      <span class="bg"></span>
+      <span class="icon"></span>
+      <span class="label">Stats BBDO</span>
+    </button>
+  </li>
+	<li>
+    <button class="btn menu item_logout">
+      <span class="bg"></span>
+      <span class="icon"></span>
+      <span class="label">Déconnexion</span>
+    </button>
+  </li>
 </ul>

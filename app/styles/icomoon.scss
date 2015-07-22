@@ -1,3 +1,26 @@
+/*
+███████████████████████████████████████████████████████████████
+██   ███     ██     ██     ██ ███ ██     ██     ███   ███ ███ █
+█ ███ ████ ██████ ████ ██████ ███ ████ ██████ ████ ███ ██ ███ █
+█ ███ ████ ██████ ████ ██████  ██ ████ ██████ ████ ███ ██  ██ █
+█     ████ ██████ ████   ████ █ █ ████ ██████ ████ ███ ██ █ █ █
+█ ███ ████ ██████ ████ ██████ ██  ████ ██████ ████ ███ ██ ██  █
+█ ███ ████ ██████ ████ ██████ ███ ████ ██████ ████ ███ ██ ███ █
+█ ███ ████ ██████ ████     ██ ███ ████ ████     ███   ███ ███ █
+███████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████
+███████████████████████████████████████████████████████████████
+*/
+// NE COPIER QUE LES CLASS ICON-xx ET LAISSER LE FONT FACE ET CLASS=^ICON
+// FONT FACE: PATH /fonts/icomoon/
+// FONT FACE: PAS DE REVISION NUMBER
+// ET
+// REMPLACER LES 3 PREMIERS LIGNES
+// [class^="icon-"]:before, [class*=" icon-"]:before,
+// [class^="icon-"], [class*=" icon-"] {
+// 	font-family: 'icomoon', Arial;
+
+
 @font-face {
 	font-family: 'icomoon';
 	src:url('/fonts/icomoon/icomoon.eot');
@@ -11,7 +34,7 @@
 
 [class^="icon-"]:before, [class*=" icon-"]:before,
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon', Arial;
+	font-family: 'icomoon', Arial, sans-serif;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -24,42 +47,96 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-signin:before {
-	content: "\e600";
+.icon-arrow_top:before {
+	content: "\e61e";
 }
-.icon-login:before {
-	content: "\e601";
+.icon-arrow_bottom:before {
+	content: "\e61b";
 }
-.icon-call-made:before {
-	content: "\e608";
+.icon-diamant:before {
+	content: "\e61c";
 }
-.icon-call-received:before {
-	content: "\e609";
+.icon-gps:before {
+	content: "\e61d";
 }
-.icon-add:before {
-	content: "\e602";
+.icon-slider_accessoire_next:before {
+	content: "\e611";
 }
-.icon-remove:before {
-	content: "\e603";
+.icon-slider_accessoire_prev:before {
+	content: "\e612";
 }
-.icon-gps-fixed:before {
-	content: "\e60a";
+.icon-slider_body_next:before {
+	content: "\e613";
 }
-.icon-gps-not-fixed:before {
-	content: "\e60b";
+.icon-slider_body_prev:before {
+	content: "\e614";
 }
-.icon-arrow-back:before {
-	content: "\e604";
+.icon-slider_chapeau_next:before {
+	content: "\e615";
 }
-.icon-arrow-forward:before {
-	content: "\e605";
+.icon-slider_chapeau_prev:before {
+	content: "\e616";
 }
-.icon-check:before {
-	content: "\e606";
+.icon-slider_feet_next:before {
+	content: "\e617";
 }
-.icon-close:before {
-	content: "\e607";
+.icon-slider_feet_prev:before {
+	content: "\e618";
+}
+.icon-slider_head_head:before {
+	content: "\e619";
+}
+.icon-slider_head_prev:before {
+	content: "\e61a";
+}
+.icon-search:before {
+	content: "\e610";
 }
 .icon-menu:before {
+	content: "\e60f";
+}
+.icon-arrow_back:before {
+	content: "\e600";
+}
+.icon-arrow_next:before {
+	content: "\e601";
+}
+.icon-arrow_slider_next:before {
+	content: "\e602";
+}
+.icon-arrow_slider_previous:before {
+	content: "\e603";
+}
+.icon-btn_round:before {
+	content: "\e604";
+}
+.icon-close:before {
+	content: "\e605";
+}
+.icon-coupe:before {
+	content: "\e606";
+}
+.icon-female:before {
+	content: "\e607";
+}
+.icon-feuilles:before {
+	content: "\e608";
+}
+.icon-fire:before {
+	content: "\e609";
+}
+.icon-login:before {
+	content: "\e60a";
+}
+.icon-male:before {
+	content: "\e60b";
+}
+.icon-settings:before {
 	content: "\e60c";
+}
+.icon-signin:before {
+	content: "\e60d";
+}
+.icon-stairs:before {
+	content: "\e60e";
 }

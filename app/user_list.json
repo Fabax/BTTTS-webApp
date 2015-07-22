@@ -1,0 +1,27 @@
+[
+  {
+    "idCard": "559d3ea37e89028059f5bb7a",
+    "email": "esperanzahooper@nimon.com",
+    "nickname": "ipsum",
+    "firstname": "Carmela",
+    "lastname": "Cummings",
+    "activity": [
+      {
+        "points": 24,
+        "steps": 22,
+        "energy": 25,
+        "calories": 69278
+      }
+    ],
+    "perso": [
+      {
+        "gender": "female",
+        "head": 7,
+        "hat": 7,
+        "accessory": 2,
+        "body": 4,
+        "feet": 3
+      }
+    ]
+  }
+]

@@ -1,14 +1,551 @@
 <div class="home">
 	<div class="landscape">
 		<div class="main">
-			<div class="users"></div>
-			<div class="slope_line_parts"></div>
+			<div class="users">
+				<div class="perso perso_container me">
+					<div class="head">
+						<img src="images/perso/perso_w_head1.svg" width="190">
+					</div>
+					<div class="head chapeau">
+						<img src="images/perso/chapeau1.png" width="190">
+					</div>
+					<div class="head accessoire">
+						<img src="images/perso/accessoire2.png" width="190">
+					</div>
+					<div class="body">
+						<img src="images/perso/perso_w_body1.svg" width="190">
+					</div>
+					<div class="feet">
+						<img src="images/perso/perso_w_feet1.svg" width="190">
+					</div>
+				</div>
+				<div class="perso perso_container perso2" ng-init="showTooltipPerso=false" ng-mouseover="showTooltipPerso=true" ng-mouseout="showTooltipPerso=false">
+					<div class="head">
+						<img src="images/perso/perso_m_head1.svg" width="190">
+					</div>
+					<div class="head chapeau">
+						<img src="images/perso/chapeau2.png" width="190">
+					</div>
+					<div class="head accessoire">
+						<img src="images/perso/accessoire1.png" width="190">
+					</div>
+					<div class="body">
+						<img src="images/perso/perso_m_body1.svg" width="190">
+					</div>
+					<div class="feet">
+						<img src="images/perso/perso_m_feet1.svg" width="190">
+					</div>
+					<div ng-if="showTooltipPerso">
+						<div class='tooltip tooltip_red'>
+							<p>Julien Phuez</p>
+							<p>aka Fufu</p>
+							<p class="small">625 points</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="slope_line_parts"></div>
 			<div class="slope_parts"></div>
 			<div class="items_container">
 				<div class="items"></div>
 				<div class="items_display_zone"></div>
+			</div> -->
+		</div>
+	</div>
+
+	<menu></menu>
+
+	<a class="btn round gpsButton" ng-href="#">
+	  <span class="bg"></span>
+	  <span class="icon icon-gps"></span>
+	  <span class="label">Fermer</span>
+	</a>
+
+	<a class="btn round faqButton" ng-href="#" ng-click="$parent.faqPopin = true">
+	  <span class="bg"></span>
+	  <span class="icon">?</span>
+	  <span class="label">Fermer</span>
+	</a>
+
+	<div class="logo_home">
+		<img src="images/logo_home.png" alt="it's better to take the stairs" />
+	</div>
+
+
+
+	<div ng-if="profilPopin" ng-init="gender = 'female'; profil = 'details'">
+		<div class="blocker" ng-click="$parent.profilPopin = false"></div>
+		<div class="profil main_popin">
+			<button class="btn round closeButton" ng-click="$parent.profilPopin = false">
+				<span class="bg"></span>
+				<span class="icon icon-close"></span>
+				<span class="label">Fermer</span>
+			</button>
+			<button class="btn round sec backButton" ng-if="profil == 'update'" ng-click="$parent.profil = 'details'">
+				<span class="bg"></span>
+				<span class="icon icon-arrow_back"></span>
+				<span class="label">Retour</span>
+			</button>
+			<div class="heading">
+				<h1>Profil</h1>
+				<p>Sophie Moyse aka Sofso</p>
+			</div>
+			<div ng-if="profil == 'details'" class="profil_details">
+				<div class="left">
+					<div class="points" ng-init="showTooltipPoints=false" ng-mouseover="showTooltipPoints=true" ng-mouseout="showTooltipPoints=false">
+						<span class="icon icon-coupe"></span>
+						<p class="big js-count-points">4214</p>
+						<p>points</p>
+						<div ng-if="showTooltipPoints">
+							<div class='tooltip tooltip_small'>
+								Attention, monter l'escalier fait gagner 2&nbsp;fois plus de points que le descendre !
+							</div>
+						</div>
+					</div>
+					<div class="energie" ng-init="showTooltipEnergie=false" ng-mouseover="showTooltipEnergie=true" ng-mouseout="showTooltipEnergie=false">
+						<div class="energie-ajd">
+							<span class="icon icon-feuilles"></span>
+							<p><span class="big js-count-energie">141</span> w</p>
+							<p>économisés<br />aujourd'hui</p>
+						</div>
+						<div class="energie-total">
+							<span class="icon icon-feuilles"></span>
+							<p><span class="js-count-energie-total">1771</span> w<br />économisés<br />au total</p>
+						</div>
+						<div ng-if="showTooltipEnergie">
+							<div class='tooltip tooltip_small'>
+								L'ascenseur consomme de l'électricité. Prendre l'escalier, c'est bon pour la planète !
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="center">
+					<div class="choix_perso">
+						<div class="perso perso_female" ng-if="gender == 'female'">
+							<div class="head">
+								<slick slides-to-show="1">
+									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
+								</slick>
+							</div>
+							<div class="head chapeau">
+								<slick slides-to-show="1">
+									<div></div>
+									<div><img src="images/perso/chapeau1.png" width="190"></div>
+									<div><img src="images/perso/chapeau2.png" width="190"></div>
+									<div><img src="images/perso/chapeau3.png" width="190"></div>
+								</slick>
+							</div>
+							<div class="head accessoire">
+								<slick slides-to-show="1">
+									<div></div>
+									<div><img src="images/perso/accessoire1.png" width="190"></div>
+									<div><img src="images/perso/accessoire2.png" width="190"></div>
+								</slick>
+							</div>
+							<div class="body">
+								<slick slides-to-show="1">
+									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
+								</slick>
+							</div>
+							<div class="feet">
+								<slick slides-to-show="1">
+									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
+									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
+								</slick>
+							</div>
+						</div>
+						<div class="perso perso_male" ng-if="gender == 'male'">
+							<div class="head">
+								<slick slides-to-show="1">
+									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
+									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
+									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
+								</slick>
+							</div>
+							<div class="body">
+								<slick slides-to-show="1">
+									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
+									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
+									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
+								</slick>
+							</div>
+							<div class="feet">
+								<slick slides-to-show="1">
+									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
+									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
+									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
+								</slick>
+							</div>
+						</div>
+					</div>
+					<div class="gender">
+						<button class="no_btn active" ng-click="gender = 'female'" ng-class="{active: gender == 'female'}">
+							<span class="icon icon-female"></span>
+						</button>
+						<button class="no_btn" ng-click="gender = 'male'" ng-class="{active: gender == 'male'}">
+							<span class="icon icon-male"></span>
+						</button>
+					</div>
+					<div class="settings">
+						<button class="no_btn" ng-click="$parent.profil = 'update'">
+							<span class="icon icon-settings"></span>
+						</button>
+					</div>
+				</div>
+				<div class="right">
+					<div class="marches">
+						<div class="marches-ajd">
+							<span class="icon icon-stairs"></span>
+							<p class="big js-count-marches-ajd">47</p>
+							<p>marches grimpées<br />aujourd'hui</p>
+						</div>
+						<div class="marches-total">
+							<span class="icon icon-stairs"></span>
+							<p class="js-count-marches-total">194</p>
+							<p>marches grimpées<br />au total</p>
+						</div>
+					</div>
+					<div class="calories" ng-init="showTooltipCalories=false" ng-mouseover="showTooltipCalories=true" ng-mouseout="showTooltipCalories=false">
+						<div class="calories-ajd">
+							<span class="icon icon-fire"></span>
+							<p class="big js-count-calories-ajd">647</p>
+							<p>calories dépensées<br />aujourd'hui</p>
+						</div>
+						<div class="calories-total">
+							<span class="icon icon-fire"></span>
+							<p class="js-count-calories-total">1771</p>
+							<p>calories dépensées au total</p>
+						</div>
+						<div ng-if="showTooltipCalories">
+							<div class='tooltip tooltip_small'>
+								Pour plus de précision, renseigne ton poids dans les réglages
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-if="profil == 'update'" class="profil_update">
+				<form class="">
+					<div class="left">
+						<h2>Données personnelles</h2>
+						<custom-input class="input input_idCard" input_type="text" parsley_type="number" input_class="idCard" min-lenght="1"  placeholder="Numéro de badge" required="true" help="true" tooltip_content="<div class='tooltip tooltip_big'><img src='images/badge_numero.png' alt='numéro de badge' /></div>"></custom-input>
+						<custom-input class="input input_firstname" input_type="text" parsley_type="alphanum" input_class="firstname" min-lenght="1"  placeholder="Prénom" required="true"></custom-input>
+						<custom-input class="input input_lastname" input_type="text" parsley_type="alphanum" input_class="lastname" min-lenght="1"  placeholder="Nom" required="true"></custom-input>
+						<custom-input class="input input_nickname" input_type="text" parsley_type="alphanum" input_class="nickname" min-lenght="1"  placeholder="Pseudo" required="true"></custom-input>
+						<custom-input class="input input_email" input_type="email" parsley_type="email" input_class="email" min-lenght="1"  placeholder="E-mail" required="true"></custom-input>
+					</div>
+					<div class="right">
+						<h2>Changer son mot de passe</h2>
+						<custom-input class="input input_pwd" input_type="password" parsley_type="alphanum" input_class="pwd" min-lenght="6"  placeholder="Mot de passe" required="false" help="true" tooltip_content="<div class='tooltip tooltip_small'>Le mot de passe doit contenir au moins 6 caractères.</div>"></custom-input>
+						<custom-input class="input input_confirm_pwd" input_type="password" parsley_type="alphanum" input_class="confirm_pwd" min-lenght="6"  placeholder="Confirmer le mot de passe" required="false"></custom-input>
+
+						<p class="form_infos">Renseigner ton poids permet de calculer plus précisément la dépense de calories, cela restera privé et ne sera diffusé nulle part.</p>
+						<!-- <custom-input class="input input_dob" input_type="text" parsley_type="alphanum" input_class="dob" min-lenght="4"  placeholder="Année de naissance" required="false" help="true" tooltip_content="<div class='tooltip tooltip_small'>Merci d'indiquer ton année de naissance au format yyyy (1980).</div>"></custom-input> -->
+						<custom-input class="input input_poids" input_type="text" parsley_type="alphanum" input_class="poids" min-lenght="1"  placeholder="Poids" required="false" help="true" tooltip_content="<div class='tooltip tooltip_small'>Merci d'indiquer ton poids en kg (58) sans l'unité. </div>"></custom-input>
+					</div>
+					<button ng-click="submitProfileFrom()" type="submit" class="btn profilButton">
+						<span class="bg"></span>
+						<span class="icon icon-signin"></span>
+						<span class="label">Enregistrer</span>
+					</button>
+          <div ng-if="signinFormErrors" class="profil_errors">
+          	Les champs suivants sont erronés :
+          	<br>
+          	<span ng-bind="profilFormErrorsList" class="errorList"></span>
+        	</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	<menu></menu>
+
+
+	<div ng-if="faqPopin">
+		<div class="blocker" ng-click="$parent.faqPopin = false"></div>
+		<div class="faq main_popin">
+			<button class="btn round closeButton" ng-click="$parent.faqPopin = false">
+				<span class="bg"></span>
+				<span class="icon icon-close"></span>
+				<span class="label">Fermer</span>
+			</button>
+			<div class="heading">
+				<h1>FAQ</h1>
+			</div>
+			<perfect-scrollbar class="scroller clearfix" wheel-propagation="true" wheel-speed="10">
+				<div ng-init="questions = [
+				  {question:'Comment sont calculés les points ?', reponse:'Le calcul est très simple ! +2 points par marche montée, +1 point par marche descendue.'},
+				  {question:'Pourquoi dois-je renseigner mon poids ?', reponse:'Le poids est nécessaire pour le calcul des calories dépensées. Nous renseignons un poids moyen selon ton sexe, mais ce calcul sera plus précis si tu renseignes ton propre poids. Cette donnée est privée, elle sert uniquement au calcul des calories et ne sera diffusé nulle part sur le site (ni ailleurs).'},
+				  {question:'J\'ai perdu mon badge et on m\'en a attribué un nouveau, comment changer le numéro de bage enregistré dans mon compte ?', reponse:'Pas de souci ! Dans la section profil, clique sur l\'icône de réglages sous le peronnage. Tu pourras alors renseigner ton nouveau numéro de badge sans perdre toutes tes données !'},
+				  {question:'Comment être le premier du classement ?', reponse:'Pas de recette miracle, il faut passer sa journée à monter l\'escalier ! Courage ;)'},
+				  {question:'Qu\'y a-t-il en haut de la montagne ?', reponse:'Ahah... Pour le savoir, il te faudra monter toujours plus de marches !'},
+				  {question:'Est-ce qu\'on gagne plus de points en montant qu\'en descendant ?', reponse:'Oui, le calcul du nombre de points est proportionel à l\'effort fourni. +1 point en descendant, +2 points en montant.'},
+				  {question:'Y a-t-il une récompense si on remporte des défis ?', reponse:'Chaque défi remporté débloque un costume ou accessoire pour personnaliser ton personnage. Rends toi dans ton profil pour pouvoir customiser ton avatar ! Et en bonus, pouvoir frimer auprès de ses collègues, c\'est pas mal comme récompense, non ?' },
+				  {question: 'Je veux pouvoir mettre à la fois des lunettes et une moustache à mon bonhomme, comment faire ?', reponse: 'Le mieux étant l\'ennemi du bien, nous avons décidé de limiter à un chapeau et un accessoire.'},
+				  {question:'J\'ai oublié de badger, puis-je rajouter manuellement les étages que j\'ai montés ?', reponse:'Afin d\'éviter toute possibilité de triche, nous ne permettons pas de modification manuelle des étages montés. La prochaine fois, pense à badger !'},
+				  {question:'Je ne trouve pas tel ou tel collègue dans le classement, comment ça se fait ?', reponse:'Seules les personnes qui se sont inscrites sur le site sont présentes dans le classement. Invite ton collègue à s\'inscrire lui-aussi !'},
+				  {question:'Mon collègue a plus de points que moi, pourtant il a moins de marches ou calories que moi, comment ça se fait ?', reponse:'Les marches descendues valent moins de points que les marches montées, et le calcul des calories se fait en fonction de ton poids et de ton genre, ce qui peut expliquer ces différences entre vos scores.'},
+				  {question:'Qui a fait ce super site de ouf ? Je veux la même chose pour mon client !', reponse:'L\'équipe de la prod a pris les commandes et a fourni un bel effort collectif ! Rendez-vous au 2e pour nous rencontrer, vous pourrez même remporter un défi en nous faisant un coucou.'}
+				]">
+				  <ul class="question-liste">
+				    <li class="" ng-repeat="question in questions | filter:q as results">
+				    	<h3 ng-click="showReponse = !showReponse" ng-class="{active: showReponse == true}">{{question.question}}</h3>
+				      <p ng-if="showReponse"  class="fade">{{question.reponse}}</p>
+				    </li>
+				    <li class="" ng-if="results.length == 0">
+				      <strong>Aucune question disponible...</strong>
+				    </li>
+				  </ul>
+				</div>
+			</perfect-scrollbar>
+		</div>
+	</div>
+
+	<div ng-if="statsPopin">
+		<div class="blocker" ng-click="$parent.statsPopin = false"></div>
+		<div class="stats main_popin">
+			<button class="btn round closeButton" ng-click="$parent.statsPopin = false">
+				<span class="bg"></span>
+				<span class="icon icon-close"></span>
+				<span class="label">Fermer</span>
+			</button>
+			<div class="heading">
+				<h1>Stats BBDO</h1>
+			</div>
+			<div class="left">
+				<div class="marches">
+					<div class="marches-ajd">
+						<span class="icon icon-stairs"></span>
+						<p class="big js-count-marches-ajd">47</p>
+						<p>marches grimpées<br />aujourd'hui</p>
+					</div>
+					<div class="marches-total">
+						<span class="icon icon-stairs"></span>
+						<p class="js-count-marches-total">194</p>
+						<p>marches grimpées<br />au total</p>
+					</div>
+				</div>
+			</div>
+			<div class="center">
+				<div class="calories"  ng-init="showTooltipCalories=false" ng-mouseover="showTooltipCalories=true" ng-mouseout="showTooltipCalories=false">
+					<div class="calories-ajd">
+						<span class="icon icon-fire"></span>
+						<p class="big js-count-calories-ajd">647</p>
+						<p>calories dépensées<br />aujourd'hui</p>
+					</div>
+					<div class="calories-total">
+						<span class="icon icon-fire"></span>
+						<p class="js-count-calories-total">1771</p>
+						<p>calories dépensées au total</p>
+					</div>
+					<div ng-if="showTooltipCalories">
+						<div class='tooltip tooltip_small'>
+							Pour plus de précision, renseigne ton poids et ton âge dans les réglages
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="energie" ng-init="showTooltipEnergie=false"  ng-mouseover="showTooltipEnergie=true" ng-mouseout="showTooltipEnergie=false">
+					<div class="energie-ajd">
+						<span class="icon icon-feuilles"></span>
+						<p><span class="big js-count-energie">141</span> w</p>
+						<p>économisés<br />aujourd'hui</p>
+					</div>
+					<div class="energie-total">
+						<span class="icon icon-feuilles"></span>
+						<p><span class="js-count-energie-total">1771</span> w<br />économisés<br />au total</p>
+					</div>
+					<div ng-if="showTooltipEnergie">
+						<div class='tooltip tooltip_small'>
+							Prendre l'ascenseur consomme de l'électricité. En prenant l'escalier, tu économises de l'énergie, merci pour la planète !
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-if="defisPopin">
+		<div class="blocker" ng-click="$parent.defisPopin = false"></div>
+		<div class="defis main_popin">
+			<button class="btn round closeButton" ng-click="$parent.defisPopin = false">
+				<span class="bg"></span>
+				<span class="icon icon-close"></span>
+				<span class="label">Fermer</span>
+			</button>
+			<div class="heading">
+				<h1>Défis</h1>
+			</div>
+			<perfect-scrollbar class="scroller clearfix" wheel-propagation="true" wheel-speed="10">
+				<div ng-init="defis = [
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				  {defi:'Première connexion', image:'images/defi1.png', tooltip:'Bienvenue et félicitations ! Tu viens de remporter ton premier défi', status:'achieved'},
+				  {defi:'9 to 5', image:'images/defi2.png', tooltip:'Prendre les escalier entre 9h-10h et 17h-18h dans une même journée', status:''},
+				  {defi:'7 in a row', image:'images/defi3.png', tooltip:'Aller du rez-de-chaussée au 7e en une seule fois', status:''},
+				  {defi:'Workink week', image:'images/defi4.png', tooltip:'Prendre les escaliers tous les jours pendant une semaine ', status:''},
+				  {defi:'Extra hours', image:'images/defi5.png', tooltip:'Prendre les escaliers en dehors des heures de travail (9-19) ', status:''},
+				  {defi:'Respect et robustesse', image:'images/defi6.png', tooltip:'Venir dire bonjour à la prod digitale (flasher le QR code)', status:''},
+				]">
+				  <ul class="defis-liste">
+				    <li ng-repeat="defi in defis | filter:q as results"  ng-mouseover="showTooltip=true" ng-mouseout="showTooltip=false" class="{{defi.status}}">
+				      <img src="{{defi.image}}" />
+				      <p>{{defi.defi}}</p>
+							<div ng-if="showTooltip">
+								<div class='tooltip tooltip_bottom tooltip_mini_bottom'>
+									{{defi.tooltip}}
+								</div>
+							</div>
+				    </li>
+				    <li class="" ng-if="results.length == 0">
+				      <strong>Aucun défi disponible...</strong>
+				    </li>
+				  </ul>
+				</div>
+			</perfect-scrollbar>
+		</div>
+	</div>
+
+
+	<div ng-if="classementPopin">
+		<div class="blocker" ng-click="$parent.classementPopin = false"></div>
+		<div class="classement main_popin">
+			<button class="btn round closeButton" ng-click="$parent.classementPopin = false">
+				<span class="bg"></span>
+				<span class="icon icon-close"></span>
+				<span class="label">Fermer</span>
+			</button>
+			<div class="search_box">
+				<form>
+					<input type="text" class="input input_search" placeholder="Recherche (prénom, nom, pseudo)"  ng-model="search"/>
+					<!-- <custom-input class="input input_search" input_type="text" parsley_type="number" input_class="search" min-lenght="1"  placeholder="Recherche (position, lastname, pseudo)" required="false"></custom-input> -->
+					<!-- <button class="btn round sec searchButton">
+						<span class="bg"></span>
+						<span class="icon icon-search"></span>
+						<span class="label">Fermer</span>
+					</button> -->
+				</form>
+			</div>
+			<div class="heading">
+				<h1>Classement</h1>
+			</div>
+			<h2>Votre position</h2>
+			<div class="user_position classement_tableau">
+				<div class="rang user_rang">213</div>
+				<div class="nom user_nom">Sophie Moyse aka Gretel</div>
+				<div class="energie user_energie">1060</div>
+				<div class="calories user_calories">400</div>
+				<div class="marches user_marches">256</div>
+				<div class="points"><span class="user_points">1763</span> pts</div>
+			</div>
+			<div class="tableau_title classement_tableau">
+				<div class="rang user_rang">Rang</div>
+				<div class="nom user_nom">Nom</div>
+				<div class="energie user_energie" ng-init="showTooltipEnergie=false">
+					<span class="icon icon-feuilles" ng-mouseover="showTooltipEnergie=true" ng-mouseout="showTooltipEnergie=false"></span>
+					<div ng-if="showTooltipEnergie">
+						<div class='tooltip tooltip_small'>
+							L'ascenseur consomme de l'électricité. Prendre l'escalier, c'est bon pour la planète !
+						</div>
+					</div>
+				</div>
+				<div class="calories user_calories" ng-init="showTooltipCalories=false">
+					<span class="icon icon-fire" ng-mouseover="showTooltipCalories=true" ng-mouseout="showTooltipCalories=false"></span>
+					<div ng-if="showTooltipCalories">
+						<div class='tooltip tooltip_small'>
+							Pour un calcul plus précis, pense à renseigner ton poids dans ton profil.
+						</div>
+					</div>
+				</div>
+				<div class="marches user_marches">
+					<span class="icon icon-stairs"></span>
+				</div>
+				<div class="points">Points</div>
+			</div>
+			<div ng-init="classements = [
+				  {firstname:'Guillaume', lastname:'Rancurel', nickname:'Hulk', energie:'1598', marches:'3753', calories:'753', points:'1478'},
+				  {firstname:'Robin', lastname:'Jeanney', nickname:'Ansel', energie:'1598', marches:'3753', calories:'753', points:'3574'},
+				  {firstname:'Julien', lastname:'Phuez', nickname:'Fufu', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Fabien', lastname:'Bonnamy', nickname:'Fabax', energie:'1598', marches:'3753', calories:'753', points:'4538'},
+				  {firstname:'Muriel', lastname:'Garilli', nickname:'Mumu', energie:'1598', marches:'3753', calories:'753', points:'7510'},
+				  {firstname:'Marie', lastname:'Perchey', nickname:'Leeloo', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Gregory', lastname:'Genova', nickname:'Greg', energie:'1598', marches:'3753', calories:'753', points:'3420'},
+				  {firstname:'Bertrand', lastname:'Brosset', nickname:'Bebert', energie:'1598', marches:'3753', calories:'753', points:'1951'},
+				  {firstname:'Matthieu', lastname:'Bonnet', nickname:'Mat', energie:'1598', marches:'3753', calories:'753', points:'3575'},
+				  {firstname:'Thierry', lastname:'Thiesson', nickname:'TH', energie:'1598', marches:'3753', calories:'753', points:'7535'},
+				  {firstname:'Benjamin', lastname:'Pinson Berthet', nickname: 'Benj', energie:'1598', marches:'3753', calories:'753', points:'8459'},
+				  {firstname:'Sebastien', lastname:'Poiret', nickname:'Seb', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'David', lastname:'Dias', nickname:'DD', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Sebastien', lastname:'Jourdain', nickname:'Babasse', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Julien', lastname:'Bonnin', nickname:'Juju', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Thibaut', lastname:'Mareille', nickname:'Tibz', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Sami', lastname:'Henchiri', nickname:'Sami', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Emmanuelle', lastname:'Litaudon', nickname:'Manue', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Celine', lastname:'Lemoine', nickname:'Cel', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Flore', lastname:'Milgram', nickname:'CookiFlo', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Isabelle', lastname:'Mousset', nickname:'Isa', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Hugues', lastname:'Balanger', nickname:'Yugi', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Clotilde', lastname:'Juniot', nickname:'Clo', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				  {firstname:'Kamil', lastname:'Kur', nickname:'Kam', energie:'1598', marches:'3753', calories:'753', points:'1456'},
+				]">
+				  <ul class="classement_liste">
+				    <li class="classement_tableau" dir-paginate="classement in classements | orderBy: order?'points':'-points' | filter:search | itemsPerPage: 8">
+							<div class="rang user_rang">{{$index + 1}}</div>
+							<div class="nom user_nom">{{classement.firstname}} {{classement.lastname}} aka {{classement.nickname}}</div>
+							<div class="energie user_energie">{{classement.energie}}</div>
+							<div class="calories user_calories">{{classement.calories}}</div>
+							<div class="marches user_marches">{{classement.marches}}</div>
+							<div class="points"><span class="user_points">{{classement.points}}</span> pts</div>
+				    </li>
+				    <li class="" ng-if="results.length == 0">
+				      <strong>Aucun résultat...</strong>
+				    </li>
+				  </ul>
+				  <dir-pagination-controls></dir-pagination-controls>
+				</div>
+	</div>
+
+
+
+
+
 </div>

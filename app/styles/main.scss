@@ -246,6 +246,20 @@ button:hover {
 		 }
 	}
 
+	&.faqButton {
+	  position: absolute;
+	  top: 20px;
+	  right: 20px;
+	}
+	&.gpsButton {
+	  position: absolute;
+	  top: 20px;
+	  left: 80px;
+	  &.round span.bg{
+	  	background: url('../images/btn_round_blue.png') no-repeat;
+	  }
+	}
+
 	&.round {
 		width: 38px;
 		height: 40px;
@@ -264,6 +278,10 @@ button:hover {
 				font-size: 22px;
 				line-height: 40px;
 				transform: scale(1);
+				&.icon-close{
+					font-size: 16px;
+  				margin-left: 1px;
+				}
 			}
 
 			&.label {
@@ -384,6 +402,10 @@ button:hover {
 		}
 	}
 }
+.no_btn{
+	background: none;
+	border: none;
+}
 
 /*
 ████████████████████████████████████████████████████████████████████████████████████
@@ -445,41 +467,69 @@ custom-input {
 	label {
 		display: none;
 	}
+}
 
-	// Tooltip numéro de badge
-	.tooltip {
-		position: absolute;
 
-		bottom: 40px;
-		left: 46%;
 
-		width: 261px;
-		padding: 10px 15px;
+// Tooltip numéro de badge
+.tooltip {
+	position: absolute;
 
-		font-family: 'Handlee', cursive;
-		font-weight: bold;
-		text-align: left;
-		font-size: 14px;
+	bottom: 40px;
+	left: 46%;
 
-		&.tooltip_bottom {
-			bottom: auto;
-			top: 40px;
+	width: 261px;
+	padding: 10px 15px;
 
-			&.tooltip_badge {
-				background: url('../images/tooltip_badge_bottom_bg.png') no-repeat;
-				height: 161px;
+	font-family: 'Handlee', cursive;
+	font-weight: bold;
+	text-align: left;
+	font-size: 14px;
+
+	&.tooltip_big {
+		background: url('../images/tooltip_big_bg.png') no-repeat;
+		height: 161px;
+	}
+
+	&.tooltip_small {
+		background: url('../images/tooltip_small_bg.png') no-repeat center bottom;
+		height: 65px;
+		padding: 10px 3px 10px 8px;
+	}
+
+	&.tooltip_mini_bottom {
+		background: url('../images/tooltip_mini_bottom_bg.png') no-repeat center bottom;
+		height: 72px;
+		padding: 10px 3px 10px 8px;
+	}
+
+	&.tooltip_red{
+		background: url('../images/tooltip_red.png') no-repeat center bottom;
+		height: 109px;
+		width: 141px;
+	  top: -75px;
+	  left: -80px;
+		p{
+			color: #fff;
+			font-size: 18px;
+			&.small{
+				font-size: 14px;
 			}
 		}
 	}
 
-	.tooltip_badge {
-		background: url('../images/tooltip_badge_bg.png') no-repeat;
-		height: 161px;
-	}
+	&.tooltip_bottom {
+		bottom: auto;
+		top: 40px;
 
-	.tooltip_mdp {
-		background: url('../images/tooltip_mdp_bg.png') no-repeat center bottom;
-		height: 65px;
+		&.tooltip_big {
+			background: url('../images/tooltip_big_bottom_bg.png') no-repeat;
+			height: 161px;
+		}
+		&.tooltip_small {
+			background: url('../images/tooltip_small_bottom_bg.png') no-repeat center bottom;
+			height: 65px;
+		}
 	}
 }
 
@@ -703,7 +753,7 @@ html {
 							left: 50%;
 							margin-left: -300px;
 
-							padding: 40px 30px;
+							padding: 25px 30px;
 
 							background: url('../images/popin_bg.png') no-repeat;
 
@@ -727,10 +777,9 @@ html {
 							custom-input {
 								float: left;
 								width: 265px;
-								margin-bottom: 20px;
+								margin-bottom: 15px;
 
-								&.input_idCard,
-								&.input_email {
+								&:nth-child(odd){
 									margin-right: 10px;
 								}
 
@@ -855,7 +904,43 @@ html {
 
 					width: 100%;
 					height: 100%;
-					
+
+					.logo_home{
+						position: absolute;
+						top: 35px;
+						left: 50%;
+						margin-left: -72px;
+					}
+
+					.perso.perso_container{
+						position: absolute;
+						bottom: 0;
+						img{
+							display: block;
+						}
+						&.me{
+							// POSITION TEMPORAIRE
+							left: 20%;
+
+							&:after{
+								content: "\e61c";
+								width: 31px;
+								height: 61px;
+								position: absolute;
+								top: -100px;
+								left: 50%;
+								margin-left: -31px;
+							  font-family: 'icomoon';
+							  font-size: 61px;
+							  color: map-get($colors, blue_medium);
+							}
+						}
+						&.perso2{
+							// POSITION TEMPORAIRE
+							left: 50%;
+						}
+					}
+
 					/*
 					████████████████████████████
 					████████████████████████████
@@ -878,6 +963,7 @@ html {
 						padding: 20px;
 
 						margin: 0;
+						z-index: 1000;
 
 						.closeButton {
 							float: left;
@@ -966,10 +1052,817 @@ html {
 							}
 						}
 					}
+
+
+					/*
+					██████████████████████████████████████████████████████████████████████
+					█████████████████ █████████████████████████████████████████ ██████████
+					██████████████████████████████████████████████████████████████████████
+					█    ████   ████  ████    ██████████    ████   ███    ████  ████    ██
+					█ █ █ ██████ ████ ████ ███ █████████ ███ ██ ███ ██ ███ ████ ████ ███ █
+					█ █ █ ███    ████ ████ ███ █████████ ███ ██ ███ ██ ███ ████ ████ ███ █
+					█ ███ ██ ███ ████ ████ ███ █████████ ███ ██ ███ ██ ███ ████ ████ ███ █
+					█ ███ ███    ██     ██ ███ █████████    ████   ███    ███     ██ ███ █
+					████████████████████████████████████ █████████████ ███████████████████
+					████████████████████████████████████ █████████████ ███████████████████
+					██████████████████████████████████████████████████████████████████████
+					*/
+					.main_popin{
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 980px;
+						height: 664px;
+						margin-top: -332px;
+						margin-left: -490px;
+						padding: 35px;
+						background: url('../images/main_popin_bg.png') no-repeat center center;
+
+						.closeButton{
+							position: absolute;
+							top: 40px;
+							right: 40px;
+						}
+						.backButton {
+						  position: absolute;
+						  top: 40px;
+						  right: 100px;
+						}
+
+						.heading{
+							text-align: left;
+  						margin-bottom: 50px;
+							h1{
+								display: inline-block;
+								vertical-align: baseline;
+								width: 100%;
+								margin: 0 10px 0 0;
+								font-family: "Handlee";
+								font-size: 30px;
+								color: map-get($colors, fuchsia);
+							}
+							p{
+								display: inline-block;
+								vertical-align: baseline;
+							}
+						}
+						.icon-coupe{
+							color: map-get($colors, fuchsia);
+							font-size: 65px;
+						}
+						.energie{
+							position: relative;
+							.icon-feuilles{
+								color: #66a825;
+							}
+						}
+						.marches{
+							.icon-stairs{
+								color: #2daae1;
+							}
+						}
+						.calories{
+							position: relative;
+							.icon-fire{
+								color: #efa016;
+							}
+						}
+						.energie-ajd,
+						.calories-ajd{
+							.icon{
+								font-size: 75px;
+							}
+						}
+						.energie-total,
+						.calories-total{
+							.icon{
+								font-size: 30px;
+							}
+						}
+						.marches-ajd{
+							.icon-stairs{
+								font-size: 55px;
+							}
+						}
+						.marches-total{
+							.icon-stairs{
+								font-size: 22px;
+							}
+						}
+						.big{
+							font-size: 36px;
+							line-height: 36px;
+						}
+						h2{
+							font-size: 14px;
+							text-align: left;
+							margin-top: 0;
+							margin-bottom: 20px;
+						}
+						.scroller {
+						    height: 505px;
+						    overflow-y: hidden;
+						    position: relative;
+						}
+						.defis-liste img {
+						    display: block;
+						}
+
+						.scroller > div {
+						    margin: 0;
+						    padding: 0;
+						}
+
+						.scroller > div > div {
+						    margin: 0;
+						    padding: 0;
+						    top: 0;
+						    position: absolute;
+						}
+					}
+					/*
+					█████████████████████████████████████████████████
+					████████████████████████   ████ █████  ██████████
+					███████████████████████ ██████████████ ██████████
+					█    ███ █   ███   ███    ████  ██████ █████   ██
+					█ ███ ██  █████ ███ ███ ███████ ██████ ████ ███ █
+					█ ███ ██ ██████ ███ ███ ███████ ██████ ████     █
+					█ ███ ██ ██████ ███ ███ ███████ ██████ ████ █████
+					█    ███ ███████   ████ █████     ███   ████    █
+					█ ███████████████████████████████████████████████
+					█ ███████████████████████████████████████████████
+					█████████████████████████████████████████████████
+					*/
+					.profil{
+						.profil_details{
+							.left{
+								display: inline-block;
+								vertical-align: middle;
+								width: 265px;
+								margin-right: 15px;
+							}
+							.center{
+								display: inline-block;
+								vertical-align: middle;
+								width: 333px;
+								height: 493px;
+								padding: 15px;
+								background: url('../images/profil_center_bg.png') no-repeat;
+							}
+							.right{
+								display: inline-block;
+								vertical-align: middle;
+								width: 265px;
+								margin-left: 15px;
+							}
+						}
+						.profil_update{
+							.left{
+								display: inline-block;
+								vertical-align: top;
+								margin-bottom: 40px;
+								width: 48%;
+								padding-left: 100px;
+								padding-right: 70px;
+								background: url('../images/faq_separator.png') no-repeat top right;
+								height: 405px;
+							}
+							.right{
+								width: 48%;
+								display: inline-block;
+								vertical-align: top;
+								padding-right: 100px;
+								padding-left: 70px;
+							}
+							form{
+								custom-input{
+									margin-bottom: 20px;
+									display: block;
+									height: 34px;
+								}
+								.form_infos{
+									margin-top: 30px;
+									margin-bottom: 20px;
+									font-size: 14px;
+									font-weight: bold;
+									text-align: left;
+								}
+								.profilButton{
+								  float: right;
+								  margin-bottom: 15px;
+								  margin-left: 20px;
+								}
+								.profil_errors{
+								  float: left;
+								  height: 40px;
+								  font-family: 'Handlee', cursive;
+								  font-size: 14px;
+								  font-weight: bold;
+								  color: #d02247;
+								  text-align: left;
+								}
+							}
+						}
+						.points,
+						.marches{
+							margin-bottom: 90px;
+							position: relative;
+						}
+						.energie-ajd,
+						.energie-total,
+						.marches-ajd,
+						.marches-total,
+						.calories-ajd,
+						.calories-total{
+							display: inline-block;
+							vertical-align: middle;
+							width: 130px;
+						}
+						.points .tooltip_small,
+						.calories .tooltip_small,
+						.energie .tooltip_small {
+						  top: -70px;
+						  left: 5px;
+						}
+						.icon-female,
+						.icon-male{
+							font-size: 45px;
+							color: map-get($colors, grey_light);
+						}
+						button:hover .icon-female,
+						button:hover .icon-male{
+							color: map-get($colors, turquoise);
+						}
+						button.active .icon-female,
+						button.active .icon-male{
+							color: map-get($colors, fuchsia);
+							cursor: default;
+						}
+						.settings{
+							margin-top: 10px;
+							.icon-settings{
+								font-size: 28px;
+								color: map-get($colors, fuchsia);
+							}
+							&:hover{
+								.icon-settings{
+									color: map-get($colors, turquoise);
+								}
+							}
+						}
+						.choix_perso{
+							margin-bottom: 10px;
+							height: 365px;
+						}
+					}
+					/*
+					█████████████████████████████████████████████████████████████████████████████
+					█████████  ██████ ███████████ ███████████████████████████████████████████████
+					██████████ ██████████████████ ███████████████████████████████████████████████
+					██    ████ █████  █████   ███ ███ █████████    ████   ███ █   ███    ███   ██
+					█ ████████ ██████ ████ ███ ██ ██ ██████████ ███ ██ ███ ██  █████ ██████ ███ █
+					██   █████ ██████ ████ ██████   ███████████ ███ ██     ██ ███████   ███ ███ █
+					█████ ████ ██████ ████ ███ ██ ██ ██████████ ███ ██ ██████ ██████████ ██ ███ █
+					█    ████   ███     ███   ███ ███ █████████    ████    ██ ██████    ████   ██
+					███████████████████████████████████████████ █████████████████████████████████
+					███████████████████████████████████████████ █████████████████████████████████
+					█████████████████████████████████████████████████████████████████████████████
+					*/
+					slick{
+						position: relative;
+						width: 190px;
+						margin: 0 auto;
+
+						.slick-next,
+						.slick-prev {
+						  position: absolute;
+						  top: 50%;
+						  margin-top: -20px;
+						  width: 40px;
+						  height: 40px;
+						  border: none;
+						  font-size: 0;
+						  z-index: 2000;
+						  background:transparent none;
+						  &:after{
+						  	position: absolute;
+						  	top: 50%;
+						  	margin-top: -9px;
+						  	left: 0;
+								width: 40px;
+								height: 20px;
+								font-family: "icomoon";
+								font-size: 25px;
+								color: map-get($colors, fuchsia);
+						  }
+						  &:hover{
+						  	&:after{
+						  		color: map-get($colors, turquoise);
+						  	}
+						  }
+						}
+						.slick-prev {
+						  left: -50px;
+						}
+						.slick-next{
+							right: -50px;
+						}
+					}
+					.perso{
+						position: relative;
+						.chapeau,
+						.accessoire{
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+						}
+						.head{
+							.slick-next{
+								&:after{
+						  		content: "\e619";
+								}
+							}
+							.slick-prev{
+								&:after{
+						  		content: "\e61a";
+								}
+							}
+						}
+						.chapeau{
+							.slick-next{
+								top: 30px;
+								&:after{
+						  		content: "\e615";
+								}
+							}
+							.slick-prev{
+								top: 30px;
+								&:after{
+						  		content: "\e616";
+								}
+							}
+						}
+						.accessoire{
+							.slick-next{
+								top: 130px;
+								&:after{
+						  		content: "\e611";
+								}
+							}
+							.slick-prev{
+								top: 130px;
+								&:after{
+						  		content: "\e612";
+								}
+							}
+						}
+						.body{
+							.slick-next{
+								&:after{
+						  		content: "\e613";
+								}
+							}
+							.slick-prev{
+								&:after{
+						  		content: "\e614";
+								}
+							}
+						}
+						.feet{
+							.slick-next{
+								&:after{
+						  		content: "\e617";
+								}
+							}
+							.slick-prev{
+								&:after{
+						  		content: "\e618";
+								}
+							}
+						}
+					}
+
+
+					/*
+					███████████████████████████████████
+					█████████ █████████████ ███████████
+					█████████ █████████████ ███████████
+					██    ██     ███   ███     ███    █
+					█ ███████ █████████ ███ █████ █████
+					██   ████ ██████    ███ ██████   ██
+					█████ ███ █████ ███ ███ █████████ █
+					█    █████   ███    ████   ██    ██
+					███████████████████████████████████
+					███████████████████████████████████
+					███████████████████████████████████
+					*/
+					.stats{
+						.left,
+						.center,
+						.right{
+							display: inline-block;
+							vertical-align: top;
+							width: 235px;
+							margin-top: 80px;
+						}
+						.marches-ajd,
+						.energie-ajd,
+						.calories-ajd{
+							margin-bottom: 30px;
+						}
+						.marches-ajd{
+							.icon-stairs{
+								font-size: 75px;
+							}
+						}
+						.marches-total{
+							.icon-stairs{
+								font-size: 30px;
+							}
+						}
+						.tooltip{
+							top: -70px;
+							bottom: auto;
+							left: 0;
+						}
+					}
+
+
+					/*
+					███████████████████████████████████
+					█████ ███████████   ████ ██████████
+					█████ ██████████ ██████████████████
+					██    ███   ███    ████  █████    █
+					█ ███ ██ ███ ███ ███████ ████ █████
+					█ ███ ██     ███ ███████ █████   ██
+					█ ███ ██ ███████ ███████ ████████ █
+					██    ███    ███ █████     ██    ██
+					███████████████████████████████████
+					███████████████████████████████████
+					███████████████████████████████████
+					*/
+					.defis{
+						.scroller{
+							text-align: left;
+						}
+						.defis-liste{
+							list-style-type: none;
+							li{
+								display: inline-block;
+								vertical-align: top;
+								width: 178px;
+								padding: 0 38px;
+								margin-bottom: 45px;
+								position: relative;
+							}
+							.tooltip{
+								width: 178px;
+								top: 95px;
+								left: 0;
+								z-index: 1000;
+							}
+							p{
+								text-align: center;
+								margin-top: 5px;
+								color: map-get($colors, grey_light);
+							}
+							img{
+								-webkit-filter: grayscale(100%);
+								filter: grayscale(100%);
+								opacity: 0.7;
+							}
+							li:hover img{
+								-webkit-filter: grayscale(0);
+								filter: grayscale(0);
+							}
+							.achieved{
+								img{
+									-webkit-filter: grayscale(0);
+									filter: grayscale(0);
+									opacity: 1;
+								}
+								p{
+									color: #000;
+									font-weight: bold;
+								}
+							}
+						}
+					}
+
+
+					/*
+					██████████████████████████████████████████████████████████████████████
+					█████████  ██████████████████████████████████████████████████████ ████
+					██████████ ██████████████████████████████████████████████████████ ████
+					██   █████ █████   ████    ███    ███   ███    ████   ███    ███     █
+					█ ███ ████ ████████ ██ ██████ ██████ ███ ██ █ █ ██ ███ ██ ███ ███ ████
+					█ ████████ █████    ███   ████   ███     ██ █ █ ██     ██ ███ ███ ████
+					█ ███ ████ ████ ███ ██████ ██████ ██ ██████ ███ ██ ██████ ███ ███ ████
+					██   ████   ████    ██    ███    ████    ██ ███ ███    ██ ███ ████   █
+					██████████████████████████████████████████████████████████████████████
+					██████████████████████████████████████████████████████████████████████
+					██████████████████████████████████████████████████████████████████████
+					*/
+					.classement{
+						.search_box{
+							position: absolute;
+							top: 40px;
+							right: 100px;
+							width: 260px;
+							input{
+								width: 260px;
+							  position: relative;
+							  display: inline-block;
+							  float: left;
+							  height: 34px;
+							  line-height: 34px;
+							  text-align: left;
+							  box-sizing: border-box;
+							  padding: 0 5px;
+							  border: solid 1px #595959;
+							  border-radius: 2px;
+							  font-family: 'Open Sans', sans-serif;
+							  font-size: 14px;
+							  color: #595959;
+  							margin-top: 3px;
+							}
+						}
+						.heading{
+							margin-bottom: 15px;
+						}
+						h2{
+							margin-bottom: 5px;
+						}
+						.classement_tableau{
+							width: 95%;
+							text-align: left;
+							.rang,
+							.nom,
+							.energie,
+							.calories,
+							.marches,
+							.points{
+								display: inline-block;
+								vertical-align: middle;
+							}
+							.rang{
+								width: 50px;
+								margin-left: 10px;
+								margin-right: 20px;
+								text-align: left;
+								color: map-get($colors, fuchsia);
+								font-weight: bold;
+							}
+							.nom{
+								width: 350px;
+								margin-right: 10px;
+								font-weight: bold;
+							}
+							.energie,
+							.calories,
+							.marches{
+								width: 70px;
+								margin: 0 10px;
+								text-align: center;
+							}
+							.points{
+								width: 120px;
+								padding-right: 15px;
+								margin-left: 10px;
+								text-align: right;
+								font-weight: bold;
+							}
+							&.user_position{
+								background: url('../images/classement_user.png') no-repeat;
+								height: 40px;
+								padding: 5px 0;
+							}
+							&.tableau_title{
+								margin-top: 25px;
+								margin-bottom: 15px;
+								.rang{
+									color: #000;
+								}
+								.icon{
+									font-size: 22px;
+								}
+								.energie,
+								.calories{
+									position: relative;
+									.tooltip{
+										bottom: 30px;
+										left: -90px;
+									}
+								}
+							}
+						}
+						.classement_liste{
+							list-style-type: none;
+							position: relative;
+							padding-top: 5px;
+							&:before {
+							  content: " ";
+							  width: 100%;
+							  height: 100%;
+							  background: url('../images/classement_cache.png') no-repeat;
+							  z-index: 100;
+							  position: absolute;
+							  top: 0;
+							  left: 0;
+							}
+							li{
+							  height: 40px;
+								padding: 5px 0;
+								&:nth-child(even){
+									background-color: #efefef;
+								}
+							}
+						}
+						.pagination{
+							list-style-type: none;
+							margin-top: 40px;
+							li{
+								display: inline-block;
+								vertical-align: middle;
+								a{
+									color: #000;
+									font-weight: bold;
+									margin: 0 5px;
+								}
+								&:hover{
+									a{
+										color: map-get($colors, turquoise);
+									}
+								}
+								&.active{
+									a{
+										color: map-get($colors, fuchsia);
+									}
+									&:hover{
+										a{
+											color: map-get($colors, fuchsia);
+											cursor: default;
+										}
+									}
+								}
+								&:last-child,
+								&:first-child{
+									a{
+										position: relative;
+								    width: 40px;
+								    height: 40px;
+								    margin: 0 35px;
+								    cursor: pointer;
+								    font-size: 0;
+								    display: block;
+										&:before {
+									    content: "\e604";
+									    position: absolute;
+									    width: 40px;
+									    height: 40px;
+									    top: 0;
+									    right: 0;
+									    font-family: "icomoon";
+									    font-size: 40px;
+									    color: white;
+									    text-shadow: -1px 0 map-get($colors, fuchsia), 0 1px map-get($colors, fuchsia), 1px 0 map-get($colors, fuchsia), 0 -1px map-get($colors, fuchsia);
+										}
+										&:after {
+										  content: "\e603";
+										  font-family: "icomoon";
+										  font-size: 20px;
+										  top: 10px;
+										  position: absolute;
+										  color: map-get($colors, fuchsia);
+										  left: 10px;
+										}
+										&:hover{
+											&:before{
+												text-shadow: -1px 0 map-get($colors, turquoise), 0 1px map-get($colors, turquoise), 1px 0 map-get($colors, turquoise), 0 -1px map-get($colors, turquoise);
+											}
+											&:after{
+												color: map-get($colors, turquoise);
+											}
+										}
+									}
+								}
+								&.disabled{
+									&:first-child,
+									&:last-child{
+										a{
+											&:before{
+												text-shadow: -1px 0 map-get($colors, grey_light), 0 1px map-get($colors, grey_light), 1px 0 map-get($colors, grey_light), 0 -1px map-get($colors, grey_light);
+											}
+											&:after{
+												color: map-get($colors, grey_light);
+											}
+											&:hover{
+												cursor: default;
+												&:before{
+													color: #fff;
+												}
+												&:after{
+													color: map-get($colors, grey_light);
+												}
+											}
+										}
+									}
+								}
+								&:first-child{
+									a{
+										&:after {
+										  content: "\e603";
+										}
+									}
+								}
+								&:last-child{
+									a{
+										&:after {
+										  content: "\e602";
+										}
+									}
+								}
+							}
+						}
+					}
+
+
+					/*
+					█████████████████████
+					███   ███████████████
+					██ ██████████████████
+					█    ████   ████   ██
+					██ █████████ ██ ███ █
+					██ ██████    ██ ███ █
+					██ █████ ███ ██ ███ █
+					██ ██████    ███    █
+					███████████████████ █
+					███████████████████ █
+					█████████████████████
+					*/
+					.faq{
+						.question-liste{
+							list-style-type: none;
+							text-align: left;
+							background: url('../images/faq_separator.png') repeat-y center top;
+							min-height: 532px;
+							margin-left: -40px;
+							// margin-right: -40px;
+							li{
+								width: 50%;
+								float: left;
+								padding: 0 40px;
+								h3{
+									text-align: left;
+									color: map-get($colors, fuchsia);
+									font-weight: bold;
+									font-size: 18px;
+									cursor: pointer;
+  								margin: 20px 0 5px;
+							    padding-right: 30px;
+							    position: relative;
+							    &:after {
+								    content: "\e61b";
+								    width: 15px;
+								    height: 15px;
+								    font-family: 'icomoon';
+								    position: absolute;
+								    right: 5px;
+								    top: 2px;
+									}
+									&.active{
+										&:after{
+											content: "\e61e";
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 	}
+}
+
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+/* now the element will fade out before it is removed from the DOM */
+.fade.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.fade.ng-leave.ng-leave-active {
+  opacity:0;
 }
 
 /*

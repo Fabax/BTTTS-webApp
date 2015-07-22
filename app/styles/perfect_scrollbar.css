@@ -1,0 +1,39 @@
+.ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+  display: block; }
+.ps-container > .ps-scrollbar-x-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  background: url('../images/scrollbar_bg.png') repeat-x;
+  bottom: 3px;
+  /* there must be 'bottom' for ps-scrollbar-x-rail */
+  height: 8px; }
+  .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    background: url('../images/scrollbar.png') repeat-x;
+    bottom: 0;
+    /* there must be 'bottom' for ps-scrollbar-x */
+    height: 8px; }
+.ps-container > .ps-scrollbar-y-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  /*background: url('../images/scrollbar_bg.png') repeat-y;*/
+  background-color: #efefef;
+  right: 3px;
+  /* there must be 'right' for ps-scrollbar-y-rail */
+  width: 2px; }
+  .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    position: absolute;
+    /* please don't change 'position' */
+    background: url('../images/scrollbar.png') repeat-y;
+    right: -2px;
+    /* there must be 'right' for ps-scrollbar-y */
+    width: 6px; }
+
+.ps-container:hover > .ps-scrollbar-x-rail:hover {
+  cursor: pointer; }
+.ps-container:hover > .ps-scrollbar-y-rail:hover {
+  cursor: pointer;}

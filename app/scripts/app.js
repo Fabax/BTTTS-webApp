@@ -23,7 +23,7 @@ window.trace = function (str) {
  ANGULAR APP CONFIG (HTML5MODE, ROUTES)
  ███████████████████████████████████████████████████████████████████████████
  */
-var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch']).config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider', function ($routeProvider, $httpProvider, $locationProvider, $compileProvider) {
+var webapp = angular.module('btttsWebapp', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'slick', 'angularUtils.directives.dirPagination', 'perfect_scrollbar']).config(['$routeProvider', '$httpProvider', '$locationProvider', '$compileProvider', function ($routeProvider, $httpProvider, $locationProvider, $compileProvider) {
 		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|javascript):/);
 
 		$httpProvider.defaults.useXDomain = true;
