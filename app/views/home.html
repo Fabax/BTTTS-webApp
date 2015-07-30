@@ -4,36 +4,36 @@
 			<div class="users">
 				<div class="perso perso_container me">
 					<div class="head">
-						<img src="images/perso/perso_w_head1.svg" width="190">
+						<img src="images/perso/head_f01.svg" width="190">
 					</div>
-					<div class="head chapeau">
+					<!-- <div class="head chapeau">
 						<img src="images/perso/chapeau1.png" width="190">
 					</div>
 					<div class="head accessoire">
 						<img src="images/perso/accessoire2.png" width="190">
-					</div>
+					</div> -->
 					<div class="body">
-						<img src="images/perso/perso_w_body1.svg" width="190">
+						<img src="images/perso/body_f02.svg" width="190">
 					</div>
 					<div class="feet">
-						<img src="images/perso/perso_w_feet1.svg" width="190">
+						<img src="images/perso/feet_f03.svg" width="190">
 					</div>
 				</div>
 				<div class="perso perso_container perso2" ng-init="showTooltipPerso=false" ng-mouseover="showTooltipPerso=true" ng-mouseout="showTooltipPerso=false">
 					<div class="head">
-						<img src="images/perso/perso_m_head1.svg" width="190">
+						<img src="images/perso/head_m01.svg" width="190">
 					</div>
-					<div class="head chapeau">
+					<!-- <div class="head chapeau">
 						<img src="images/perso/chapeau2.png" width="190">
 					</div>
 					<div class="head accessoire">
 						<img src="images/perso/accessoire1.png" width="190">
-					</div>
+					</div> -->
 					<div class="body">
-						<img src="images/perso/perso_m_body1.svg" width="190">
+						<img src="images/perso/body_m02.svg" width="190">
 					</div>
 					<div class="feet">
-						<img src="images/perso/perso_m_feet1.svg" width="190">
+						<img src="images/perso/feet_m03.svg" width="190">
 					</div>
 					<div ng-if="showTooltipPerso">
 						<div class='tooltip tooltip_red'>
@@ -44,13 +44,14 @@
 					</div>
 				</div>
 			</div>
+
 			<!-- <div class="slope_line_parts"></div>
 			<div class="slope_parts"></div>
 			<div class="items_container">
 				<div class="items"></div>
 				<div class="items_display_zone"></div>
-			</div> -->
-		</div>
+			</div>
+		</div> -->
 	</div>
 
 	<menu></menu>
@@ -124,9 +125,10 @@
 						<div class="perso perso_female" ng-if="gender == 'female'">
 							<div class="head">
 								<slick slides-to-show="1">
-									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_head1.svg" width="190"></div>
+									<div><img src="images/perso/head_f01.svg" width="190"></div>
+									<div><img src="images/perso/head_f02.svg" width="190"></div>
+									<div><img src="images/perso/head_f03.svg" width="190"></div>
+									<div><img src="images/perso/head_f04.svg" width="190"></div>
 								</slick>
 							</div>
 							<div class="head chapeau">
@@ -146,39 +148,40 @@
 							</div>
 							<div class="body">
 								<slick slides-to-show="1">
-									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_body1.svg" width="190"></div>
+									<div><img src="images/perso/body_f01.svg" width="190"></div>
+									<div><img src="images/perso/body_f02.svg" width="190"></div>
+									<div><img src="images/perso/body_f03.svg" width="190"></div>
 								</slick>
 							</div>
 							<div class="feet">
 								<slick slides-to-show="1">
-									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
-									<div><img src="images/perso/perso_w_feet1.svg" width="190"></div>
+									<div><img src="images/perso/feet_f01.svg" width="190"></div>
+									<div><img src="images/perso/feet_f02.svg" width="190"></div>
+									<div><img src="images/perso/feet_f03.svg" width="190"></div>
 								</slick>
 							</div>
 						</div>
 						<div class="perso perso_male" ng-if="gender == 'male'">
 							<div class="head">
 								<slick slides-to-show="1">
-									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
-									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
-									<div><img src="images/perso/perso_m_head1.svg" width="190"></div>
+									<div><img src="images/perso/head_m01.svg" width="190"></div>
+									<div><img src="images/perso/head_m02.svg" width="190"></div>
+									<div><img src="images/perso/head_m03.svg" width="190"></div>
+									<div><img src="images/perso/head_m04.svg" width="190"></div>
 								</slick>
 							</div>
 							<div class="body">
 								<slick slides-to-show="1">
-									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
-									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
-									<div><img src="images/svg/perso_m_body1.svg" width="190"></div>
+									<div><img src="images/perso/body_m01.svg" width="190"></div>
+									<div><img src="images/perso/body_m02.svg" width="190"></div>
+									<div><img src="images/perso/body_m03.svg" width="190"></div>
 								</slick>
 							</div>
 							<div class="feet">
 								<slick slides-to-show="1">
-									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
-									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
-									<div><img src="images/svg/perso_m_feet1.svg" width="190"></div>
+									<div><img src="images/perso/feet_m01.svg" width="190"></div>
+									<div><img src="images/perso/feet_m02.svg" width="190"></div>
+									<div><img src="images/perso/feet_m03.svg" width="190"></div>
 								</slick>
 							</div>
 						</div>
@@ -527,21 +530,22 @@
 				  {firstname:'Clotilde', lastname:'Juniot', nickname:'Clo', energie:'1598', marches:'3753', calories:'753', points:'1456'},
 				  {firstname:'Kamil', lastname:'Kur', nickname:'Kam', energie:'1598', marches:'3753', calories:'753', points:'1456'},
 				]">
-				  <ul class="classement_liste">
-				    <li class="classement_tableau" dir-paginate="classement in classements | orderBy: order?'points':'-points' | filter:search | itemsPerPage: 8">
-							<div class="rang user_rang">{{$index + 1}}</div>
-							<div class="nom user_nom">{{classement.firstname}} {{classement.lastname}} aka {{classement.nickname}}</div>
-							<div class="energie user_energie">{{classement.energie}}</div>
-							<div class="calories user_calories">{{classement.calories}}</div>
-							<div class="marches user_marches">{{classement.marches}}</div>
-							<div class="points"><span class="user_points">{{classement.points}}</span> pts</div>
-				    </li>
-				    <li class="" ng-if="results.length == 0">
-				      <strong>Aucun résultat...</strong>
-				    </li>
-				  </ul>
-				  <dir-pagination-controls></dir-pagination-controls>
-				</div>
+			  <ul class="classement_liste">
+			    <li class="classement_tableau" dir-paginate="classement in classements | orderBy: order?'points':'-points' | filter:search | itemsPerPage: 8">
+						<div class="rang user_rang">{{$index + 1}}</div>
+						<div class="nom user_nom">{{classement.firstname}} {{classement.lastname}} aka {{classement.nickname}}</div>
+						<div class="energie user_energie">{{classement.energie}}</div>
+						<div class="calories user_calories">{{classement.calories}}</div>
+						<div class="marches user_marches">{{classement.marches}}</div>
+						<div class="points"><span class="user_points">{{classement.points}}</span> pts</div>
+			    </li>
+			    <li class="" ng-if="results.length == 0">
+			      <strong>Aucun résultat...</strong>
+			    </li>
+			  </ul>
+			  <dir-pagination-controls></dir-pagination-controls>
+			</div>
+		</div>
 	</div>
 
 
